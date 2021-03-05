@@ -1,23 +1,7 @@
 <template>
   <a-layout>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
-      <div class="logo" />
-      <a-menu mode="inline" theme="dark" :inline-collapsed="collapsed" v-model:openKeys="openKeys"
-        v-model:selectedKeys="selectedKeys">
-        <div v-for="route in hasShowingChid(openRoutes)">
-          <a-menu-item v-if="route.children.length==1">
-            <span>{{route.children[0].meta.title}}</span>
-          </a-menu-item>
-          <a-sub-menu key="sub1" v-else>
-            <template #title>
-              <span>
-                <span>{{route.meta.title}}</span>
-              </span>
-            </template>
-          </a-sub-menu>
-        </div>
-
-      </a-menu>
+      
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -59,10 +43,8 @@ export default defineComponent({
       selectedKeys: ['1'],
       openKeys: ['sub1'],
     })
-    func
-    
     return {
-      // ...toRefs(state),
+      ...toRefs(state),
       openRoutes,
       // showRoutes,
     }

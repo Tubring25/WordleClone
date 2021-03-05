@@ -5,7 +5,10 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'slide-bar'
+  name: 'slide-bar',
+  setup(props) {
+    console.log(props);
+  }
 })
 </script>
 <style lang="less" scoped>

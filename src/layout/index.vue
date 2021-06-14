@@ -1,7 +1,7 @@
 <template>
   <a-layout>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
-      
+      <slide-bar></slide-bar>
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -27,6 +27,7 @@ import {
   MenuFoldOutlined,
 } from '@ant-design/icons-vue'
 import { defineComponent, ref, reactive, toRefs, provide } from 'vue'
+import SlideBar from '@/layout/components/SlideBar/index.vue'
 import { openRoutes } from '@/router/index'
 
 export default defineComponent({
@@ -36,6 +37,7 @@ export default defineComponent({
     UploadOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    SlideBar
   },
   setup() {
     const state = reactive({

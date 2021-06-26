@@ -1,13 +1,5 @@
 <template>
   <div class="slide-bar__container">
-    <a-button
-      type="primary"
-      @click="toggleCollapsed"
-      style="margin-bottom: 16px"
-    >
-      <MenuUnfoldOutlined v-if="collapsed" />
-      <MenuFoldOutlined v-else />
-    </a-button>
     <a-menu
       mode="inline"
       theme="dark"

@@ -1,9 +1,10 @@
+<!--
+ * @Description:
+ * @Date: 2021-07-13 17:10:23
+ * @LastEditTime: 2021-07-13 17:11:06
+-->
 <template>
-  <div style="width: 256px">
-    <a-button type="primary" @click="toggleCollapsed" style="margin-bottom: 16px">
-      <MenuUnfoldOutlined v-if="collapsed" />
-      <MenuFoldOutlined v-else />
-    </a-button>
+  <div class="slide-bar__container">
     <a-menu
       mode="inline"
       theme="dark"
@@ -71,7 +72,6 @@ export default defineComponent({
       openKeys: ['sub1'],
       preOpenKeys: ['sub1']
     })
-
     watch(
       () => state.openKeys,
       (val, oldVal) => {
@@ -89,8 +89,6 @@ export default defineComponent({
     }
   },
   components: {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
     PieChartOutlined,
     MailOutlined,
     DesktopOutlined,
@@ -99,3 +97,6 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="less" scoped>
+</style>

@@ -53,7 +53,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, watch } from 'vue';
+import { defineComponent, reactive, toRefs, watch } from 'vue'
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -61,32 +61,32 @@ import {
   MailOutlined,
   DesktopOutlined,
   InboxOutlined,
-  AppstoreOutlined,
-} from '@ant-design/icons-vue';
+  AppstoreOutlined
+} from '@ant-design/icons-vue'
 export default defineComponent({
-  setup() {
+  setup () {
     const state = reactive({
       collapsed: false,
       selectedKeys: ['1'],
       openKeys: ['sub1'],
-      preOpenKeys: ['sub1'],
-    });
+      preOpenKeys: ['sub1']
+    })
 
     watch(
       () => state.openKeys,
       (val, oldVal) => {
-        state.preOpenKeys = oldVal;
-      },
-    );
+        state.preOpenKeys = oldVal
+      }
+    )
     const toggleCollapsed = () => {
-      state.collapsed = !state.collapsed;
-      state.openKeys = state.collapsed ? [] : state.preOpenKeys;
-    };
+      state.collapsed = !state.collapsed
+      state.openKeys = state.collapsed ? [] : state.preOpenKeys
+    }
 
     return {
       ...toRefs(state),
-      toggleCollapsed,
-    };
+      toggleCollapsed
+    }
   },
   components: {
     MenuFoldOutlined,
@@ -95,8 +95,7 @@ export default defineComponent({
     MailOutlined,
     DesktopOutlined,
     InboxOutlined,
-    AppstoreOutlined,
-  },
-});
+    AppstoreOutlined
+  }
+})
 </script>
-

@@ -1,5 +1,10 @@
+<!--
+ * @Description: layout
+ * @Date: 2021-06-21 18:30:03
+ * @LastEditTime: 2021-07-24 19:16:44
+-->
 <template>
-  <a-layout>
+  <a-layout style="height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <slide-bar></slide-bar>
     </a-layout-sider>
@@ -20,11 +25,8 @@
 </template>
 <script lang="ts">
 import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
   MenuUnfoldOutlined,
-  MenuFoldOutlined,
+  MenuFoldOutlined
 } from '@ant-design/icons-vue'
 import { defineComponent, ref, reactive, toRefs, provide } from 'vue'
 import SlideBar from '@/layout/components/SlideBar/index.vue'
@@ -32,25 +34,22 @@ import { openRoutes } from '@/router/index'
 
 export default defineComponent({
   components: {
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     SlideBar
   },
-  setup() {
+  setup () {
     const state = reactive({
       collapsed: false,
       selectedKeys: ['1'],
-      openKeys: ['sub1'],
+      openKeys: ['sub1']
     })
     return {
       ...toRefs(state),
-      openRoutes,
+      openRoutes
       // showRoutes,
     }
-  },
+  }
 })
 </script>
 <style>

@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-07-13 17:10:23
- * @LastEditTime: 2021-07-13 17:11:06
+ * @LastEditTime: 2021-07-25 10:31:24
 -->
 <template>
   <div class="slide-bar__container">
@@ -13,7 +13,8 @@
       v-model:selectedKeys="selectedKeys"
     >
       <a-menu-item key="1">
-        <PieChartOutlined />
+        <menu-icon :icon="PieChartOutlined" />
+        <!-- <PieChartOutlined /> -->
         <span>Option 1</span>
       </a-menu-item>
       <a-menu-item key="2">
@@ -54,10 +55,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, watch } from 'vue'
+import { defineComponent, reactive, toRefs, watch, ref } from 'vue'
+import Icon from './icon'
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   PieChartOutlined,
   MailOutlined,
   DesktopOutlined,
@@ -72,6 +72,7 @@ export default defineComponent({
       openKeys: ['sub1'],
       preOpenKeys: ['sub1']
     })
+    const icon = ref('PieChartOutlined')
     watch(
       () => state.openKeys,
       (val, oldVal) => {
@@ -85,15 +86,18 @@ export default defineComponent({
 
     return {
       ...toRefs(state),
-      toggleCollapsed
+      toggleCollapsed,
+      icon
     }
   },
   components: {
-    PieChartOutlined,
+    Icon,
+    // PieChartOutlined,
     MailOutlined,
     DesktopOutlined,
     InboxOutlined,
     AppstoreOutlined
+    // MenuIcon
   }
 })
 </script>

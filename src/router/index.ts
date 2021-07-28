@@ -1,3 +1,8 @@
+/*
+ * @Description: 路由
+ * @Date: 2021-06-21 18:30:03
+ * @LastEditTime: 2021-07-28 18:39:42
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
@@ -13,14 +18,14 @@ export const openRoutes: Array<RouteRecordRaw> = [
     name: 'layout',
     component: Layout,
     redirect: '/dashboard',
-    meta: { title: '首页', },
+    meta: { title: '首页' },
     children: [
       {
-        path: "dashboard",
+        path: 'dashboard',
         component: () => import('@/views/Dashboard.vue'),
         props: true,
-        meta: { title: "首页", icon: '<AndroidOutlined />' },
-      },
+        meta: { title: '首页', icon: 'AndroidOutlined' }
+      }
     ]
   },
   {
@@ -28,48 +33,48 @@ export const openRoutes: Array<RouteRecordRaw> = [
     name: 'test',
     component: Layout,
     redirect: '/test/test1',
-    meta: { title: '测试', },
+    meta: { title: '测试' },
     children: [
       {
         path: 'test1',
         name: 'test1',
         component: () => import('@/views/404.vue'),
-        meta: { title: '测试1', icon: '<AppleOutlined />' }
+        meta: { title: '测试1', icon: 'AndroidOutlined' }
       },
       {
         path: 'hidden',
         name: 'hidden',
         component: () => import('@/views/404.vue'),
-        meta: { title: '测试1', icon: '<AppleOutlined />', hidden: true }
+        meta: { title: '测试1', icon: 'AndroidOutlined', hidden: true }
       },
       {
         path: 'test2',
         name: 'test2',
         component: () => import('@/views/test2.vue'),
-        meta: { title: '测试2', icon: '<WindowsOutlined />' },
+        meta: { title: '测试2', icon: 'WindowsOutlined' },
         children: [
           {
             path: 'test3',
             name: 'test3',
             component: () => import('@/views/test3.vue'),
-            meta: { title: '测试3', icon: '<IeOutlined />' }
+            meta: { title: '测试3', icon: 'IeOutlined' }
           },
           {
             path: 'hidden',
             name: 'hidden',
             component: () => import('@/views/404.vue'),
-            meta: { title: '测试1', icon: '<AppleOutlined />', hidden: true }
-          },
+            meta: { title: '测试1', icon: 'AndroidOutlined', hidden: true }
+          }
         ]
-      },
+      }
     ]
   },
   {
     path: '/:catchAll(.*)',
     name: '404',
     component: () => import('@/views/404.vue'),
-    meta: { hidden: true },
-  },
+    meta: { hidden: true }
+  }
 ]
 
 const router = createRouter({

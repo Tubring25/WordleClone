@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-07-13 17:10:23
- * @LastEditTime: 2021-07-25 10:31:24
+ * @LastEditTime: 2021-07-28 18:47:19
 -->
 <template>
   <div class="slide-bar__container">
@@ -13,8 +13,7 @@
       v-model:selectedKeys="selectedKeys"
     >
       <a-menu-item key="1">
-        <menu-icon :icon="PieChartOutlined" />
-        <!-- <PieChartOutlined /> -->
+        <Icon icon="PieChartOutlined" />
         <span>Option 1</span>
       </a-menu-item>
       <a-menu-item key="2">
@@ -57,8 +56,9 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, ref } from 'vue'
 import Icon from './icon'
+import routerOpts from '@/router'
+
 import {
-  PieChartOutlined,
   MailOutlined,
   DesktopOutlined,
   InboxOutlined,

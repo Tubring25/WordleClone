@@ -1,7 +1,7 @@
 <!--
  * @Description: layout
  * @Date: 2021-06-21 18:30:03
- * @LastEditTime: 2021-07-24 19:16:44
+ * @LastEditTime: 2021-07-29 16:02:09
 -->
 <template>
   <a-layout style="height: 100vh">
@@ -16,9 +16,11 @@
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
         style="padding-left: 10px">
-        <keep-alive>
-          <router-view />
-        </keep-alive>
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component"/>
+          </keep-alive>
+        </router-view>
       </a-layout-content>
     </a-layout>
   </a-layout>

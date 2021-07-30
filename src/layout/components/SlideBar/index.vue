@@ -1,7 +1,7 @@
 <!--
- * @Description:
+ * @Description: 侧边栏
  * @Date: 2021-07-13 17:10:23
- * @LastEditTime: 2021-07-28 18:47:19
+ * @LastEditTime: 2021-07-28 19:57:19
 -->
 <template>
   <div class="slide-bar__container">
@@ -66,6 +66,7 @@ import {
 } from '@ant-design/icons-vue'
 export default defineComponent({
   setup () {
+    console.log('route', routerOpts)
     const state = reactive({
       collapsed: false,
       selectedKeys: ['1'],

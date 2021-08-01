@@ -1,24 +1,18 @@
 /*
  * @Description: 路由
  * @Date: 2021-06-21 18:30:03
- * @LastEditTime: 2021-07-28 18:39:42
+ * @LastEditTime: 2021-08-01 16:10:30
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
 export const openRoutes: Array<RouteRecordRaw> = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: ()=> import('@/views/Home.vue'),
-  //   meta: { hidden: true },
-  // },
   {
     path: '/',
     name: 'layout',
     component: Layout,
     redirect: '/dashboard',
-    meta: { title: '首页' },
+    meta: { title: '首页', icon: 'AndroidOutlined' },
     children: [
       {
         path: 'dashboard',

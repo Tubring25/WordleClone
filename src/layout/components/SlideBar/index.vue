@@ -1,7 +1,7 @@
 <!--
  * @Description: 侧边栏
  * @Date: 2021-07-13 17:10:23
- * @LastEditTime: 2021-07-28 19:57:19
+ * @LastEditTime: 2021-08-01 18:16:07
 -->
 <template>
   <div class="slide-bar__container">
@@ -12,66 +12,47 @@
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
     >
-      <a-menu-item key="1">
-        <Icon icon="PieChartOutlined" />
-        <span>Option 1</span>
-      </a-menu-item>
-      <a-menu-item key="2">
-        <DesktopOutlined />
-        <span>Option 2</span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <InboxOutlined />
-        <span>Option 3</span>
-      </a-menu-item>
-      <a-sub-menu key="sub1">
-        <template #title>
+      <template v-for="route in routes" :key="route.path">
+        <a-menu-item v-if="route.children?.length === 1 && !route.meta.hidden" :key="route.path">
+          <Icon v-if="route.meta.icon" :icon="route.meta.icon"></Icon>
+          <span :class="['menu-icon', route.meta.icon ? '' : 'no-icon']">{{route.meta.title}}</span>
+        </a-menu-item>
+        <template v-else>
+          <sub-menu :menu-info="route" :key="route.path" />
+        </template>
+        <!-- <a-sub-menu v-else :key="route.path">
+          <template #title>
           <span>
-            <MailOutlined />
-            <span>Navigation One</span>
+            <Icon v-if="route.meta.icon" :icon="route.meta.icon"></Icon>
+            <span :class="['menu-icon', route.meta.icon ? '' : 'no-icon']">{{route.meta.title}}</span>
           </span>
         </template>
-        <a-menu-item key="5">Option 5</a-menu-item>
-        <a-menu-item key="6">Option 6</a-menu-item>
-        <a-menu-item key="7">Option 7</a-menu-item>
-        <a-menu-item key="8">Option 8</a-menu-item>
-      </a-sub-menu>
-      <a-sub-menu key="sub2">
-        <template #title>
-          <span>
-            <AppstoreOutlined />
-            <span>Navigation Two</span>
-          </span>
+        <template v-for="item in route.children" :key="item.path">
+          <a-menu-item>
+            <Icon v-if="item.meta.icon" :icon="item.meta.icon"></Icon>
+            <span :class="['menu-icon', item.meta.icon ? '' : 'no-icon']">{{item.meta.title}}</span>
+          </a-menu-item>
         </template>
-        <a-menu-item key="9">Option 9</a-menu-item>
-        <a-menu-item key="10">Option 10</a-menu-item>
-        <a-sub-menu key="sub3" title="Submenu">
-          <a-menu-item key="11">Option 11</a-menu-item>
-          <a-menu-item key="12">Option 12</a-menu-item>
-        </a-sub-menu>
-      </a-sub-menu>
+        </a-sub-menu> -->
+      </template>
     </a-menu>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, ref } from 'vue'
 import Icon from './icon'
+import SubMenu from './subMenu'
 import routerOpts from '@/router'
 
-import {
-  MailOutlined,
-  DesktopOutlined,
-  InboxOutlined,
-  AppstoreOutlined
-} from '@ant-design/icons-vue'
 export default defineComponent({
   setup () {
     console.log('route', routerOpts)
+    const routes = routerOpts.options.routes
     const state = reactive({
       collapsed: false,
-      selectedKeys: ['1'],
-      openKeys: ['sub1'],
-      preOpenKeys: ['sub1']
+      selectedKeys: [],
+      openKeys: [],
+      preOpenKeys: []
     })
     const icon = ref('PieChartOutlined')
     watch(
@@ -87,18 +68,14 @@ export default defineComponent({
 
     return {
       ...toRefs(state),
+      routes,
       toggleCollapsed,
       icon
     }
   },
   components: {
     Icon,
-    // PieChartOutlined,
-    MailOutlined,
-    DesktopOutlined,
-    InboxOutlined,
-    AppstoreOutlined
-    // MenuIcon
+    SubMenu
   }
 })
 </script>

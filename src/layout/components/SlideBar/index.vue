@@ -1,7 +1,7 @@
 <!--
  * @Description: 侧边栏
  * @Date: 2021-07-13 17:10:23
- * @LastEditTime: 2021-08-01 18:16:07
+ * @LastEditTime: 2021-08-04 08:43:04
 -->
 <template>
   <div class="slide-bar__container">
@@ -20,20 +20,6 @@
         <template v-else>
           <sub-menu :menu-info="route" :key="route.path" />
         </template>
-        <!-- <a-sub-menu v-else :key="route.path">
-          <template #title>
-          <span>
-            <Icon v-if="route.meta.icon" :icon="route.meta.icon"></Icon>
-            <span :class="['menu-icon', route.meta.icon ? '' : 'no-icon']">{{route.meta.title}}</span>
-          </span>
-        </template>
-        <template v-for="item in route.children" :key="item.path">
-          <a-menu-item>
-            <Icon v-if="item.meta.icon" :icon="item.meta.icon"></Icon>
-            <span :class="['menu-icon', item.meta.icon ? '' : 'no-icon']">{{item.meta.title}}</span>
-          </a-menu-item>
-        </template>
-        </a-sub-menu> -->
       </template>
     </a-menu>
   </div>

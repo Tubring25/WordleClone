@@ -1,7 +1,7 @@
 /*
  * @Description: Vuex-account
  * @Date: 2021-08-04 09:18:38
- * @LastEditTime: 2021-08-04 17:35:18
+ * @LastEditTime: 2021-08-06 15:54:45
  */
 import Cookie from 'js-cookie'
 interface State {
@@ -37,7 +37,7 @@ const getters: object = {
   name: (state: State): string => state.name ?? localStorage.getItem('ts_name'),
   avatar: (state: State): string => state.avatar ?? localStorage.getItem('ts_avatar'),
   token: (state: State): string => state.token ?? Cookie.get('ts_token'),
-  roles: (state: State): string[] => state.roles ?? JSON.parse(Cookie.get('ts_roles'))
+  roles: (state: State): string[] => state.roles
 }
 
 export default {

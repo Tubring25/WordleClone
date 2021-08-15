@@ -1,7 +1,7 @@
 /*
  * @Description: 路由
  * @Date: 2021-06-21 18:30:03
- * @LastEditTime: 2021-08-01 16:10:30
+ * @LastEditTime: 2021-08-15 22:02:57
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
@@ -23,6 +23,12 @@ export const openRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index.vue'),
+    meta: { title: '登录', hidden: true }
+  },
+  {
     path: '/test',
     name: 'test',
     component: Layout,
@@ -32,14 +38,8 @@ export const openRoutes: Array<RouteRecordRaw> = [
       {
         path: 'test1',
         name: 'test1',
-        component: () => import('@/views/404.vue'),
+        component: () => import('@/views/Home.vue'),
         meta: { title: '测试1', icon: 'AndroidOutlined' }
-      },
-      {
-        path: 'hidden',
-        name: 'hidden',
-        component: () => import('@/views/404.vue'),
-        meta: { title: '测试1', icon: 'AndroidOutlined', hidden: true }
       },
       {
         path: 'test2',
@@ -54,10 +54,10 @@ export const openRoutes: Array<RouteRecordRaw> = [
             meta: { title: '测试3', icon: 'IeOutlined' }
           },
           {
-            path: 'hidden',
+            path: 'test',
             name: 'hidden',
-            component: () => import('@/views/404.vue'),
-            meta: { title: '测试1', icon: 'AndroidOutlined', hidden: true }
+            component: () => import('@/views/test2.vue'),
+            meta: { title: '测试2', icon: 'AndroidOutlined', hidden: true }
           }
         ]
       }

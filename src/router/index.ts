@@ -1,7 +1,11 @@
 /*
  * @Description: 路由
  * @Date: 2021-06-21 18:30:03
- * @LastEditTime: 2021-08-15 22:02:57
+<<<<<<< HEAD
+ * @LastEditTime: 2021-08-15 22:30:12
+=======
+ * @LastEditTime: 2021-08-12 22:40:10
+>>>>>>> eb2b45a8c7b890a66f8281f1a94a3ea206c3e1de
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
@@ -44,7 +48,7 @@ export const openRoutes: Array<RouteRecordRaw> = [
       {
         path: 'test2',
         name: 'test2',
-        component: () => import('@/views/test2.vue'),
+        redirect: 'test2/test3',
         meta: { title: '测试2', icon: 'WindowsOutlined' },
         children: [
           {

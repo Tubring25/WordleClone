@@ -1,11 +1,7 @@
 /*
  * @Description: 路由
  * @Date: 2021-06-21 18:30:03
-<<<<<<< HEAD
- * @LastEditTime: 2021-08-15 22:30:12
-=======
- * @LastEditTime: 2021-08-12 22:40:10
->>>>>>> eb2b45a8c7b890a66f8281f1a94a3ea206c3e1de
+ * @LastEditTime: 2021-08-21 16:30:38
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'

@@ -13,13 +13,13 @@ import { routerKey } from 'vue-router'
 
 export default defineComponent({
   name: 'app-main',
-  setup() {
+  setup () {
     console.log(routerKey)
 
     // return {
 
     // }
-  },
+  }
 })
 </script>
 <style lang="less" scoped>

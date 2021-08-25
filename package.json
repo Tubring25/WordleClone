@@ -5,13 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "mock": "node src/mock/index.js"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
     "@types/js-cookie": "^2.2.7",
     "ant-design-vue": "^2.0.1",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
+    "mockjs": "^1.1.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -37,6 +40,8 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "typescript": "~3.9.3"
+    "style-resources-loader": "^1.4.1",
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5"
   }
 }

@@ -1,5 +1,11 @@
+/*
+ * @Description: 
+ * @Date: 2021-10-02 23:32:24
+ * @LastEditTime: 2021-10-03 19:50:24
+ */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
+import Layout from '../layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,11 +15,21 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/about',
+    redirect: '/about/index',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'about',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: 'home',
+        name: 'Home2',
+        component: Home
+      },
+    ]
   }
 ]
 

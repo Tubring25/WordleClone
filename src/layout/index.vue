@@ -1,7 +1,7 @@
 <!--
  * @Description: Layout Index
  * @Date: 2021-10-03 15:02:17
- * @LastEditTime: 2021-10-03 21:32:36
+ * @LastEditTime: 2021-10-05 16:19:45
 -->
 <template>
   <div class="layout-container">
@@ -39,9 +39,11 @@ export default defineComponent({
   &__top {
     display: flex;
     flex-direction: row;
+    height: calc(100% - 90px);
   }
   &__bottom {
     width: 100%;
+    height: 90px;
   }
 }
 </style>

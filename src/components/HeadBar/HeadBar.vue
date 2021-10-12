@@ -1,19 +1,21 @@
 <!--
  * @Description: center-head
  * @Date: 2021-10-07 14:43:14
- * @LastEditTime: 2021-10-10 17:59:24
+ * @LastEditTime: 2021-10-12 22:50:03
 -->
 <template>
   <div class="headbar">
     <div class="headbar__left-arrows">
-      <i class="headbar__left-arrows__icon iconfont icon-arrow-left-bold"></i><i class="headbar__left-arrows__icon iconfont icon-arrow-right-bold"></i>
+      <i class="headbar__left-arrows__icon iconfont icon-arrow-left-bold"></i>
+      <i class="headbar__left-arrows__icon iconfont icon-arrow-right-bold"></i>
     </div>
     <div class="headbar__right-info">
+      <i class="headbar__right-info__icon iconfont icon-user"></i>
       <a-dropdown :trigger="['click']">
-        <a class="ant-dropdown-link" @click.prevent>
+        <span class="ant-dropdown-link" @click.prevent>
           Click me
-          <DownOutlined />
-        </a>
+          <CaretDownOutlined />
+        </span>
         <template #overlay>
           <a-menu>
             <a-menu-item key="0">
@@ -32,10 +34,49 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { DownOutlined } from '@ant-design/icons-vue';
+import { CaretDownOutlined } from '@ant-design/icons-vue';
 export default defineComponent({
   components: {
-    DownOutlined,
+    CaretDownOutlined,
   },
 });
 </script>
+<style lang="less" scoped>
+.headbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+  &__left-arrows{
+    display: flex;
+    justify-content: space-between;
+    width: 85px;
+    i {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background: @theme-bg-dark;
+      text-align: center;
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+  &__right-info {
+    height: 32px;
+    border-radius: 16px;
+    background: @theme-bg-dark;
+    i {
+      display: inline-block;
+      margin: 3px;
+      width: 26px;
+      height: 26px;
+      border-radius: 13px;
+      background: @theme-bg-gray;
+      text-align: center;
+      line-height: 26px;
+    }
+  }
+  
+}
+</style>

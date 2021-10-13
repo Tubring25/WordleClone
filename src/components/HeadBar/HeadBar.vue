@@ -1,7 +1,7 @@
 <!--
  * @Description: center-head
  * @Date: 2021-10-07 14:43:14
- * @LastEditTime: 2021-10-12 22:50:03
+ * @LastEditTime: 2021-10-13 18:36:40
 -->
 <template>
   <div class="headbar">
@@ -63,12 +63,12 @@ export default defineComponent({
     }
   }
   &__right-info {
+    padding: 3px 5px 3px 3px;
     height: 32px;
     border-radius: 16px;
     background: @theme-bg-dark;
     i {
       display: inline-block;
-      margin: 3px;
       width: 26px;
       height: 26px;
       border-radius: 13px;

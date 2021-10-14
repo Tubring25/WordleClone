@@ -1,0 +1,8 @@
+build/*.js
+src/assets
+public
+dist
+src/utils/*.js
+src/plugins/*.js
+src/mock/goods/index.js
+src/static/iconfont/iconfont.js

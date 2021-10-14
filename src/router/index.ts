@@ -1,7 +1,7 @@
 /*
- * @Description: 
+ * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-10-13 18:43:20
+ * @LastEditTime: 2021-10-14 22:12:32
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'index',
         name: 'about',
         component: () => import('@/views/home/index.vue')
-      },
+      }
     ]
   }
 ]

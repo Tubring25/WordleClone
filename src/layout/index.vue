@@ -1,7 +1,7 @@
 <!--
  * @Description: Layout Index
  * @Date: 2021-10-03 15:02:17
- * @LastEditTime: 2021-10-05 16:19:45
+ * @LastEditTime: 2021-10-14 22:05:25
 -->
 <template>
   <div class="layout-container">
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import LeftContainer from './LeftContainer/LeftContainer.vue'
 import CenterContainer from './CenterContainer/CenterContainer.vue'
 import RightContainer from './RightContainer/RightContainer.vue'
@@ -26,7 +26,7 @@ import BottomContainer from './BottomContainer/BottomContainer.vue'
 export default defineComponent({
   name: 'Layout',
   components: { LeftContainer, CenterContainer, RightContainer, BottomContainer }
-});
+})
 </script>
 <style lang="less" scoped>
 .layout-container {

@@ -1,7 +1,7 @@
 <!--
- * @Description: 
+ * @Description:
  * @Date: 2021-10-03 15:02:04
- * @LastEditTime: 2021-10-12 22:34:43
+ * @LastEditTime: 2021-10-14 22:05:22
 -->
 <template>
   <div class="center__container">
@@ -10,13 +10,13 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import HeadBar from '@/components/HeadBar/HeadBar.vue'
 
 export default defineComponent({
   name: 'CenterContainer',
-  components: {HeadBar}
-});
+  components: { HeadBar }
+})
 </script>
 <style lang="less" scoped>
 .center__container {

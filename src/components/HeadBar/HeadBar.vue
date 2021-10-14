@@ -1,7 +1,7 @@
 <!--
  * @Description: center-head
  * @Date: 2021-10-07 14:43:14
- * @LastEditTime: 2021-10-13 18:36:40
+ * @LastEditTime: 2021-10-14 22:05:19
 -->
 <template>
   <div class="headbar">
@@ -33,13 +33,13 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { CaretDownOutlined } from '@ant-design/icons-vue';
+import { defineComponent } from 'vue'
+import { CaretDownOutlined } from '@ant-design/icons-vue'
 export default defineComponent({
   components: {
-    CaretDownOutlined,
-  },
-});
+    CaretDownOutlined
+  }
+})
 </script>
 <style lang="less" scoped>
 .headbar {
@@ -77,6 +77,6 @@ export default defineComponent({
       line-height: 26px;
     }
   }
-  
+
 }
 </style>

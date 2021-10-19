@@ -9,7 +9,11 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
+    "@types/spotify-web-api-node": "^5.0.3",
     "ant-design-vue": "^2.2.8",
+    "axios": "^0.23.0",
+    "qs": "^6.10.1",
+    "spotify-web-api-node": "^5.0.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"

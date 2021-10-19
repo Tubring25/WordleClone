@@ -103,10 +103,10 @@ dist
 
 # TernJS port file
 .tern-port
-=======
 .DS_Store
 node_modules
 /dist
+.env
 
 
 # local env files

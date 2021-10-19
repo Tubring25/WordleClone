@@ -1,7 +1,7 @@
 <!--
  * @Description: BottonContainer
  * @Date: 2021-10-03 20:38:24
- * @LastEditTime: 2021-10-07 14:23:59
+ * @LastEditTime: 2021-10-19 20:40:03
 -->
 <template>
   <div class="bottom-container">
@@ -9,10 +9,10 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'BottonContainer',
+  name: 'BottonContainer'
 })
 </script>
 <style lang="less" scoped>

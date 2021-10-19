@@ -1,17 +1,17 @@
 <!--
  * @Description: Right Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-10-03 20:23:59
+ * @LastEditTime: 2021-10-19 20:39:44
 -->
 <template>
   <div class="right__container">right part</div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'RightContaienr',
-});
+  name: 'RightContaienr'
+})
 </script>
 <style lang="less" scoped>
 .right__container {

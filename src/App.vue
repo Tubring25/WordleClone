@@ -1,7 +1,7 @@
 <!--
- * @Description: 
+ * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-10-07 14:18:03
+ * @LastEditTime: 2021-10-19 20:40:09
 -->
 <template>
   <div class="app-container">
@@ -9,9 +9,9 @@
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
-  name: '',
+  name: ''
 })
 </script>
 <style lang="less">

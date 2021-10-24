@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-10-19 20:28:54
+ * @LastEditTime: 2021-10-20 08:22:12
 -->
 <template>
   <div class="home">
@@ -50,9 +50,8 @@ export default defineComponent({
   components: {},
   setup() {
     const getstart = () => {
-      SpotifyApi.getArtistAlbums(
-        '43ZHCT0cAZBISjO8DG9PnE',
-        { limit: 10, offset: 20 },
+      SpotifyApi.getMyRecentlyPlayedTracks(
+        { limit: 6 },
         function(err, data) {
           if (err) {
             console.error('Something went wrong!')
@@ -62,7 +61,9 @@ export default defineComponent({
         }
       )
     }
-    return getstart
+    return {
+      getstart
+    }
   },
   mounted() {
     this.getstart()

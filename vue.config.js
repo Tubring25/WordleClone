@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-10-03 22:24:42
- * @LastEditTime: 2021-10-14 22:05:31
+ * @LastEditTime: 2021-10-24 21:59:36
  */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
@@ -25,5 +25,8 @@ module.exports = {
         }
       }
     }
+  },
+  devServer: {
+    port: 6741
   }
 }

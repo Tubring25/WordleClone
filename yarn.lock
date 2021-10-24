@@ -1610,8 +1610,8 @@
     "supports-color" "^7.1.0"
 
 "chalk@^4.1.0":
-  "integrity" "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA=="
-  "resolved" "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  "integrity" "sha1-qsTit3NKdAhnrrFr8CqtVWoeegE="
+  "resolved" "https://registry.nlark.com/chalk/download/chalk-4.1.2.tgz?cache=0&sync_timestamp=1627646655305&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.2.tgz"
   "version" "4.1.2"
   dependencies:
     "ansi-styles" "^4.1.0"
@@ -1926,6 +1926,20 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.2.2"
     "typedarray" "^0.0.6"
+
+"concurrently@^6.3.0":
+  "integrity" "sha1-YxKMtKbtVNPA7YUocoWQpf5UWCo="
+  "resolved" "https://registry.npmmirror.com/concurrently/download/concurrently-6.3.0.tgz"
+  "version" "6.3.0"
+  dependencies:
+    "chalk" "^4.1.0"
+    "date-fns" "^2.16.1"
+    "lodash" "^4.17.21"
+    "rxjs" "^6.6.3"
+    "spawn-command" "^0.0.2-1"
+    "supports-color" "^8.1.0"
+    "tree-kill" "^1.2.2"
+    "yargs" "^16.2.0"
 
 "connect-history-api-fallback@^1.6.0":
   "integrity" "sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg=="
@@ -2311,6 +2325,11 @@
   "version" "1.14.1"
   dependencies:
     "assert-plus" "^1.0.0"
+
+"date-fns@^2.16.1":
+  "integrity" "sha1-jFyPHZWL44CamgP0t0LrqJT8VoA="
+  "resolved" "https://registry.npmmirror.com/date-fns/download/date-fns-2.25.0.tgz"
+  "version" "2.25.0"
 
 "debug@^2.2.0":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
@@ -6697,7 +6716,7 @@
   dependencies:
     "aproba" "^1.1.1"
 
-"rxjs@^6.6.0":
+"rxjs@^6.6.0", "rxjs@^6.6.3":
   "integrity" "sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-6.6.7.tgz"
   "version" "6.6.7"
@@ -7126,6 +7145,11 @@
   "resolved" "https://registry.npmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz"
   "version" "1.4.8"
 
+"spawn-command@^0.0.2-1":
+  "integrity" "sha1-YvXpRmmBwbeW3Fkpk34RycaSG9A="
+  "resolved" "https://registry.nlark.com/spawn-command/download/spawn-command-0.0.2-1.tgz"
+  "version" "0.0.2-1"
+
 "spdx-correct@^3.0.0":
   "integrity" "sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w=="
   "resolved" "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.1.1.tgz"
@@ -7462,6 +7486,13 @@
   dependencies:
     "has-flag" "^4.0.0"
 
+"supports-color@^8.1.0":
+  "integrity" "sha1-zW/BfihQDP9WwbhsCn/UpUpzAFw="
+  "resolved" "https://registry.nlark.com/supports-color/download/supports-color-8.1.1.tgz?cache=0&sync_timestamp=1626703400240&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsupports-color%2Fdownload%2Fsupports-color-8.1.1.tgz"
+  "version" "8.1.1"
+  dependencies:
+    "has-flag" "^4.0.0"
+
 "svgo@^1.0.0":
   "integrity" "sha512-yhy/sQYxR5BkC98CY7o31VGsg014AKLEPxdfhora76l36hD9Rdy5NZA/Ocn6yayNPgSamYdtX2rFJdcv07AYVw=="
   "resolved" "https://registry.npmjs.org/svgo/-/svgo-1.3.2.tgz"
@@ -7639,6 +7670,11 @@
   dependencies:
     "psl" "^1.1.28"
     "punycode" "^2.1.1"
+
+"tree-kill@^1.2.2":
+  "integrity" "sha1-TKCakJLIi3OnzcXooBtQeweQoMw="
+  "resolved" "https://registry.nlark.com/tree-kill/download/tree-kill-1.2.2.tgz"
+  "version" "1.2.2"
 
 "tryer@^1.0.1":
   "integrity" "sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA=="
@@ -8409,6 +8445,19 @@
 "yargs@^16.0.0":
   "integrity" "sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw=="
   "resolved" "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
+  "version" "16.2.0"
+  dependencies:
+    "cliui" "^7.0.2"
+    "escalade" "^3.1.1"
+    "get-caller-file" "^2.0.5"
+    "require-directory" "^2.1.1"
+    "string-width" "^4.2.0"
+    "y18n" "^5.0.5"
+    "yargs-parser" "^20.2.2"
+
+"yargs@^16.2.0":
+  "integrity" "sha1-HIK/D2tqZur85+8w43b0mhJHf2Y="
+  "resolved" "https://registry.npmmirror.com/yargs/download/yargs-16.2.0.tgz?cache=0&sync_timestamp=1632604912933&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fyargs%2Fdownload%2Fyargs-16.2.0.tgz"
   "version" "16.2.0"
   dependencies:
     "cliui" "^7.0.2"

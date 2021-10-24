@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "concurrently \"yarn serve\" \"nodemon node-server/index.js\" "
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
@@ -28,6 +29,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
+    "concurrently": "^6.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "less": "^3.0.4",

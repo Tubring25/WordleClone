@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-10-20 08:22:12
+ * @LastEditTime: 2021-10-25 21:36:51
 -->
 <template>
   <div class="home">
@@ -43,23 +43,12 @@
 <script lang="">
 import { defineComponent } from 'vue'
 // import axios from 'axios'
-import SpotifyApi from '@/apis/index'
-
 export default defineComponent({
   name: 'Home',
   components: {},
   setup() {
     const getstart = () => {
-      SpotifyApi.getMyRecentlyPlayedTracks(
-        { limit: 6 },
-        function(err, data) {
-          if (err) {
-            console.error('Something went wrong!')
-          } else {
-            console.log(data.body)
-          }
-        }
-      )
+      console.log(12312)
     }
     return {
       getstart

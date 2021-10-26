@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-03 15:02:04
- * @LastEditTime: 2021-10-14 22:05:22
+ * @LastEditTime: 2021-10-26 22:54:40
 -->
 <template>
   <div class="center__container">
@@ -22,7 +22,7 @@ export default defineComponent({
 .center__container {
   padding: 0 35px;
   min-width: 700px;
-  width: 70%;
-  background: @theme-bg;
+  width: 80%;
+  background: linear-gradient(#FCFCFE, #F3F6FC);
 }
 </style>

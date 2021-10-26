@@ -1,17 +1,13 @@
 <!--
  * @Description: Layout Index
  * @Date: 2021-10-03 15:02:17
- * @LastEditTime: 2021-10-14 22:05:25
+ * @LastEditTime: 2021-10-26 22:40:18
 -->
 <template>
   <div class="layout-container">
     <div class="layout-container__top">
       <LeftContainer></LeftContainer>
       <CenterContainer></CenterContainer>
-      <RightContainer></RightContainer>
-    </div>
-    <div class="layout-container__bottom">
-      <BottomContainer></BottomContainer>
     </div>
   </div>
 </template>
@@ -20,12 +16,10 @@
 import { defineComponent } from 'vue'
 import LeftContainer from './LeftContainer/LeftContainer.vue'
 import CenterContainer from './CenterContainer/CenterContainer.vue'
-import RightContainer from './RightContainer/RightContainer.vue'
-import BottomContainer from './BottomContainer/BottomContainer.vue'
 
 export default defineComponent({
   name: 'Layout',
-  components: { LeftContainer, CenterContainer, RightContainer, BottomContainer }
+  components: { LeftContainer, CenterContainer }
 })
 </script>
 <style lang="less" scoped>
@@ -39,11 +33,7 @@ export default defineComponent({
   &__top {
     display: flex;
     flex-direction: row;
-    height: calc(100% - 90px);
-  }
-  &__bottom {
-    width: 100%;
-    height: 90px;
+    height: 100%
   }
 }
 </style>

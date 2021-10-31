@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-10-19 20:40:09
+ * @LastEditTime: 2021-10-31 22:33:02
 -->
 <template>
   <div class="app-container">
@@ -18,5 +18,8 @@ export default defineComponent({
 .app-container {
   color: @text-color;
   font-size: 14px;
+  p {
+    margin: 0;
+  }
 }
 </style>

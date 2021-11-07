@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-31 20:34:23
- * @LastEditTime: 2021-11-02 20:55:32
+ * @LastEditTime: 2021-11-07 15:27:23
 -->
 <template>
   <div class="avatar">
@@ -11,11 +11,21 @@
   </div>
 </template>
 
-<script lang='ts' setup>
-import { ref } from 'vue'
-const username = ref('username')
-const email = ref('email')
+<script lang='ts'>
+import { defineComponent, ref } from 'vue'
 
+export default defineComponent({
+  name: 'Avatar',
+  setup() {
+    const username = ref('username')
+    const email = ref('email')
+
+    return {
+      username,
+      email
+    }
+  }
+})
 </script>
 <style lang="less" scoped>
 .avatar {

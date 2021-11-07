@@ -106,7 +106,6 @@ dist
 .DS_Store
 node_modules
 /dist
-.env
 
 
 # local env files

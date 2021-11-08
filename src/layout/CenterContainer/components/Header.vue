@@ -1,11 +1,11 @@
 <!--
  * @Description:
  * @Date: 2021-11-07 19:25:34
- * @LastEditTime: 2021-11-07 22:17:33
+ * @LastEditTime: 2021-11-08 09:30:33
 -->
 <template>
   <div class="center-hader">
-    <n-input v-model="searchKey" size="large" round placeholder="大" />
+    <n-input v-model="searchKey" round placeholder="大" />
     <n-tabs justify-content="space-evenly" type="line">
       <template v-for="(item, index) in headerNav" :key="index">
         <n-tab-pane :name="item" :tab="item"></n-tab-pane>

@@ -1,7 +1,7 @@
 /*
  * @Description: Axios取消重复请求
  * @Date: 2021-11-05 08:30:17
- * @LastEditTime: 2021-11-05 14:27:22
+ * @LastEditTime: 2021-11-08 18:43:02
  */
 
 import axios, { AxiosRequestConfig } from 'axios'
@@ -26,6 +26,7 @@ export class AxiosCanceler {
   addPending(config:AxiosRequestConfig):void {
     this.removePending(config)
     const url = this.generateReqKey(config)
+    console.log('reeee', config)
     config.cancelToken = config.cancelToken || new axios.CancelToken(cancel => {
       if (!this.pendingRequest.has(url)) this.pendingRequest.set(url, cancel)
     })
@@ -36,6 +37,8 @@ export class AxiosCanceler {
    * @return {*}
    */
   removePending(config: AxiosRequestConfig): void {
+    console.log(123123123123, config)
+
     const url = this.generateReqKey(config)
     if (this.pendingRequest.has(url)) {
       const cancelToken = this.pendingRequest.get(url)

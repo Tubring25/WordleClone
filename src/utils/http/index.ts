@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-02 21:43:13
- * @LastEditTime: 2021-11-07 10:51:35
+ * @LastEditTime: 2021-11-08 22:36:29
  */
 
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
@@ -10,7 +10,7 @@ import { checkStatus } from './checkStatus'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 3000
+  timeout: 10000
 })
 
 const axiosCanceler = new AxiosCanceler()
@@ -18,6 +18,9 @@ const axiosCanceler = new AxiosCanceler()
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     axiosCanceler.addPending(config)
+
+    Object.assign(config.params, { realIP: '192.168.8.108' })
+    return config
   },
   error => {
     return Promise.reject(error)
@@ -25,7 +28,7 @@ service.interceptors.request.use(
 )
 
 service.interceptors.response.use(
-  async(response: AxiosResponse) => {
+  async(response:AxiosResponse<any>) => {
     await checkStatus(response.status)
     return response.data
   },
@@ -33,3 +36,5 @@ service.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+export default service

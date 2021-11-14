@@ -1,7 +1,7 @@
 <!--
  * @Description: Left Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-11-07 22:22:07
+ * @LastEditTime: 2021-11-14 10:43:26
 -->
 <template>
   <div class="left__container">
@@ -36,7 +36,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .left__container {
   min-width: 150px;
-  width: 20%;
+  width: 25%;
   background: @theme-bg;
   color: @text-gray;
   .avatar {

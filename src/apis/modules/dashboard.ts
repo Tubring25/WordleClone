@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 18:21:12
- * @LastEditTime: 2021-11-11 17:50:53
+ * @LastEditTime: 2021-11-12 18:03:34
  */
 
 export interface Search {
@@ -20,6 +20,6 @@ export interface BannerList {
 export interface TopList {
   order?: string,
   cat?: string,
-  limit?: string,
+  limit?: number,
   offset?: string
 }

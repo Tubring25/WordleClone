@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-10-03 22:24:42
- * @LastEditTime: 2021-10-24 21:59:36
+ * @LastEditTime: 2021-11-14 13:48:52
  */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
@@ -19,7 +19,7 @@ module.exports = {
           modifyVars: {
             'primary-color': '#65D26E',
             'link-color': '#ababab',
-            'text-color': '#f2f2f2'
+            'text-color': '#143119'
           },
           javascriptEnabled: true
         }

@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-02 21:43:13
- * @LastEditTime: 2021-11-08 22:36:29
+ * @LastEditTime: 2021-11-14 20:55:15
  */
 
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
@@ -19,7 +19,7 @@ service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     axiosCanceler.addPending(config)
 
-    Object.assign(config.params, { realIP: '192.168.8.108' })
+    Object.assign(config.params ?? {}, { realIP: '192.168.8.108' })
     return config
   },
   error => {

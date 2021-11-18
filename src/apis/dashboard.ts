@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 16:32:15
- * @LastEditTime: 2021-11-14 20:54:28
+ * @LastEditTime: 2021-11-17 09:48:14
  */
 
 import request from '@/utils/http/index'
@@ -26,4 +26,8 @@ export function getTopPlaylist(params:Dashboard.TopList):Promise<any> {
 
 export function getTopList():Promise<any> {
   return request({ url: '/toplist' })
+}
+
+export function getPlaylistDetail(params:Dashboard.PlaylistDetail):Promise<any> {
+  return request({ url: '/playlist/detail', params })
 }

@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-11-14 21:14:16
+ * @LastEditTime: 2021-11-18 22:24:39
 -->
 <template>
   <div class="home">
@@ -19,17 +19,36 @@
         <n-space vertical >
            <div class="home__top-list" v-for="item in topPlayList" :key="item.id">
               <img :src="item.coverImgUrl" alt="">
-              <span>{{item.name}}</span>
+              <n-tooltip v-if="item.name.length > 15" placement="top-start" trigger="hover">
+                <template #trigger>
+                  <span>{{item.name}}</span>
+                </template>
+                {{item.name}}
+              </n-tooltip>
+              <span v-else>{{item.name}}</span>
             </div>
         </n-space>
       </n-grid-item>
       <n-grid-item :span="9">
-        <h2>Most Popular</h2>
-        <n-tabs>
-          <n-tab-pane name="1"></n-tab-pane>
-          <n-tab-pane name="2"></n-tab-pane>
-          <n-tab-pane name="3"></n-tab-pane>
+        <h2>Ranks</h2>
+        <n-tabs type="card" @update:value="changeTab">
+          <n-tab-pane tab="飙升榜" name="19723756"></n-tab-pane>
+          <n-tab-pane tab="新歌榜" name="3779629"></n-tab-pane>
+          <n-tab-pane tab="热歌榜" name="3778678"></n-tab-pane>
         </n-tabs>
+        <n-space vertical >
+          <div class="home__music-list"  v-for="(item, index) in rankList" :key="item.id">
+            <span>{{index+1}}</span>
+            <img :src="item.al.picUrl" alt="">
+            <n-tooltip v-if="item.name.length > 15" placement="top-start" trigger="hover">
+              <template #trigger>
+                <span>{{item.name}}</span>
+              </template>
+              {{item.name}}
+              </n-tooltip>
+            <span v-else>{{item.name}}</span>
+          </div>
+        </n-space>
       </n-grid-item>
     </n-grid>
 
@@ -39,18 +58,18 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import * as Dashboard from '@/apis/dashboard'
-import { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane } from 'naive-ui'
+import { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane, NTooltip } from 'naive-ui'
 
 export default defineComponent({
   name: 'Home',
-  components: { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane },
+  components: { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane, NTooltip },
   setup() {
     const bannerList = ref([])
     const getBanner = async() => {
       try {
         const res = await Dashboard.getBanner({ type: 0 })
         bannerList.value = res.banners
-      } catch { (err:any) => console.error(err) }
+      } catch (err:any) { console.error(err) }
     }
 
     const topPlayList = ref([])
@@ -58,28 +77,33 @@ export default defineComponent({
       try {
         const res = await Dashboard.getTopPlaylist({ limit: 4 })
         topPlayList.value = res.playlists
-      } catch { (err:any) => console.error(err) }
+      } catch (err:any) { console.error(err) }
     }
 
-    const getTopList = async() => {
-      console.log(1212)
-
+    const changeTab = (value: string | number):void => {
+      getPlaylistDetail(value)
+    }
+    const rankList = ref([])
+    const getPlaylistDetail = async(tabId: number | string) => {
       try {
-        console.log(Dashboard.getTopList())
-
-        const res = await Dashboard.getTopList()
+        console.log(rankList)
+        const res = await Dashboard.getPlaylistDetail({ id: tabId })
         console.log(res)
-      } catch { (err:any) => console.error(err) }
+        rankList.value = res.playlist.tracks
+        console.log(rankList)
+      } catch (err:any) { console.error(err) }
     }
 
     onMounted(() => {
       getBanner()
       getTopPlayList()
-      getTopList()
+      getPlaylistDetail(19723756)
     })
     return {
       bannerList,
-      topPlayList
+      topPlayList,
+      changeTab,
+      rankList
     }
   }
 })
@@ -116,9 +140,13 @@ export default defineComponent({
     }
     span{
       display:inline-block;
+      overflow: hidden;
       margin-left: 10px;
+      width: 65%;
       height: 100%;
       vertical-align: top;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

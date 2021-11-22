@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 18:21:12
- * @LastEditTime: 2021-11-17 09:47:49
+ * @LastEditTime: 2021-11-21 14:50:56
  */
 
 export interface Search {
@@ -27,4 +27,9 @@ export interface TopList {
 export interface PlaylistDetail {
   id: number | string,
   s?: number
+}
+
+export interface SongUrl {
+  id: number | string,
+  br?: number
 }

@@ -1,21 +1,18 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-11-22 23:43:45
+ * @LastEditTime: 2021-11-23 18:25:43
 -->
 <template>
   <div class="home">
-    <n-grid :x-gap="14" :y-gap="20" :cols="14">
-      <n-grid-item :span="9">
-        <div class="home__banner">
-          <h2>Recent Release</h2>
-          <n-carousel autoplay>
-            <img :src="item.imageUrl" alt="" v-for="item in bannerList" :key="item.imageUrl">
-          </n-carousel>
-        </div>
-      </n-grid-item>
-      <n-grid-item :span="5">
-        <h2>Top List</h2>
+        <div class="home__grid box-1">
+          <div class="home__banner">
+            <h2>Recent Release</h2>
+            <n-carousel autoplay>
+              <img :src="item.imageUrl" alt="" v-for="item in bannerList" :key="item.imageUrl">
+            </n-carousel>
+          </div>
+        <!-- <h2>Top List</h2>
         <n-space vertical class="home__top-list" >
            <div class="home__top-list__item" v-for="item in topPlayList" :key="item.id">
               <img :src="item.coverImgUrl" alt="">
@@ -27,10 +24,22 @@
               </n-tooltip>
               <span v-else class="home__top-list__item__title">{{item.name}}</span>
             </div>
-        </n-space>
-      </n-grid-item>
-      <n-grid-item :span="9">
-        <h2>Ranks</h2>
+        </n-space> -->
+        </div>
+        <div class="home__grid box-2">
+<h2>Player</h2>
+        <div class="home__player">
+          <img src="@/assets/icon.png" alt="">
+          <span class="home__player__title">{{currentPlayer?.name ?? 'name'}}</span>
+          <span class="home__player__artist">{{currentPlayer?.artist ?? 'artist'}}</span>
+          <!-- <audio controls>
+            <source src="music.mp3" type="audio/mpeg">
+          </audio> -->
+          <ProgressBar />
+        </div>
+        </div>
+        <div class="home__grid box-3">
+          <h2>Ranks</h2>
         <n-tabs type="card" @update:value="changeTab" class="home__music-tabs">
           <n-tab-pane tab="飙升榜" name="19723756"></n-tab-pane>
           <n-tab-pane tab="新歌榜" name="3779629"></n-tab-pane>
@@ -55,30 +64,32 @@
             <i class="iconfont icon-bofang" @click="addCurrentPlay(item)"></i>
           </div>
         </n-space>
-      </n-grid-item>
-      <n-grid-item :span="5">
-        <div class="home__player">
-          <img src="" alt="">
-          <span class="home__player__title">{{}}</span>
-          <span class="home__player__artist">{{}}</span>
         </div>
-      </n-grid-item>
-    </n-grid>
 
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import * as Dashboard from '@/apis/dashboard'
-import { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane, NTooltip } from 'naive-ui'
-// import { songStore } from '@/store/song'
+import { NCarousel, NSpace, NTabs, NTabPane, NTooltip } from 'naive-ui'
+import { songStore } from '@/store/song'
+import ProgressBar from '@/components/ProgressBar/ProgressBar.vue'
+
+// interface SongInfo{
+//   id: string | number,
+//   name: string
+//   artist: string[],
+//   url: string,
+//   img: string,
+//   enable: boolean
+// }
 
 export default defineComponent({
   name: 'Home',
-  components: { NGrid, NGridItem, NCarousel, NSpace, NTabs, NTabPane, NTooltip },
+  components: { NCarousel, NSpace, NTabs, NTabPane, NTooltip, ProgressBar },
   setup() {
-    // const SongStore = songStore()
+    const SongStore = songStore()
 
     const bannerList = ref([])
     const getBanner = async() => {
@@ -107,7 +118,7 @@ export default defineComponent({
       } catch (err:any) { console.error(err) }
     }
 
-    const currentPlayer = reactive({})
+    let currentPlayer
     const getSongUrl = async(id: number | string) => {
       try {
         const res = await Dashboard.getSongUrl({ id: 1893736474 })
@@ -118,12 +129,12 @@ export default defineComponent({
     const addCurrentPlay = async(item:any) => {
       const { id, name, picUrl: img } = item.al
       const artist = item.ar
-      const currentSongInfo = { id, name, img, artist, url: null, enable: tru }
+      currentPlayer = { id, name, img, artist, url: '', enable: true }
       try {
         const res = await Dashboard.getSongUrl(id)
-        currentSongInfo.url = res.data[0].url
+        currentPlayer.url = res.data[0].url
+        SongStore.songInfo = currentPlayer
       } catch (err) { console.error(err) }
-      console.log('item', item)
     }
 
     onMounted(() => {
@@ -145,6 +156,27 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .home {
+  display: grid;
+  overflow: scroll;
+
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  .box-1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 1;
+  }
+  .box-2 {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  .box-3 {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
   h2 {
     color: @text-dark;
     opacity: .7;
@@ -155,7 +187,7 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       border-radius: 15px;
-      box-shadow: 0 3px 10px @text-dark;
+      box-shadow: 0 3px 10px @active-color;
       img {
         width: 100%;
         height: 100%;
@@ -213,6 +245,31 @@ export default defineComponent({
       i {
         vertical-align: top;
       }
+    }
+  }
+  &__player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 10px @active-color;
+    img {
+      margin: 60px auto;
+      width: 60%;
+      border-radius: 10px;
+    }
+    &__title, &__artist{
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+    }
+    &__title {
+      padding-bottom: 10px;
+      font-weight: bold;
+      font-size: 18px;
     }
   }
 }

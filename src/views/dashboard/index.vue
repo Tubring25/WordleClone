@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-11-23 18:25:43
+ * @LastEditTime: 2021-11-24 23:04:22
 -->
 <template>
   <div class="home">
@@ -58,8 +58,16 @@
             <span v-else  class="home__music-list__item__title">
               {{item.name}}
             </span>
-            <span class="home__music-list__item__artist" v-for="artist in item.ar" :key="artist.id">
-              {{artist.name}}
+            <n-tooltip v-if="item.ar.map(ar => ar.name).join('/').length > 10" placement="top-start" trigger="hover">
+              <template #trigger>
+                <span class="home__music-list__item__artist" >
+                  {{`${item.ar.map(ar => ar.name).join('/')}`}}
+                </span>
+              </template>
+              {{`${item.ar.map(ar => ar.name).join('/')}`}}
+            </n-tooltip>
+            <span v-else class="home__music-list__item__artist" >
+              {{`${item.ar.map(ar => ar.name).join('/')}`}}
             </span>
             <i class="iconfont icon-bofang" @click="addCurrentPlay(item)"></i>
           </div>
@@ -216,7 +224,7 @@ export default defineComponent({
       display:inline-block;
       overflow: hidden;
       margin-left: 10px;
-      width: 65%;
+      width: 55%;
       height: 100%;
       vertical-align: top;
       text-overflow: ellipsis;

@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 16:32:15
- * @LastEditTime: 2021-11-22 09:40:12
+ * @LastEditTime: 2021-11-25 18:10:13
  */
 
 import request from '@/utils/http/index'
@@ -34,4 +34,8 @@ export function getPlaylistDetail(params:Dashboard.PlaylistDetail):Promise<any> 
 
 export function getSongUrl(params:Dashboard.SongUrl):Promise<any> {
   return request({ url: '/song/url', params })
+}
+
+export function checkMusic(params:Dashboard.SongUrl): Promise<any> {
+  return request({ url: '/check/music', params })
 }

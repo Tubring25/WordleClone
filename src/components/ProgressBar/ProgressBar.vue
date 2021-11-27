@@ -1,7 +1,7 @@
 <!--
  * @Description: progress-bar
  * @Date: 2021-11-23 11:14:42
- * @LastEditTime: 2021-11-23 22:55:47
+ * @LastEditTime: 2021-11-25 18:06:23
 -->
 <template>
   <div class="progress-wrapper">
@@ -23,6 +23,20 @@
     </span>
   </div>
 </template>
+<script lang='ts'>
+import { defineComponent } from 'vue'
+import { songStore } from '@/store/song'
+
+export default defineComponent({
+  name: '',
+  setup() {
+    const SongStore = songStore()
+    SongStore.$subscribe((mutation, state) => {
+      console.log(mutation, state.songInfo)
+    })
+  }
+})
+</script>
 <style lang="less" scoped>
 .progress-wrapper {
   display: flex;

@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-03 15:02:04
- * @LastEditTime: 2021-11-13 10:48:43
+ * @LastEditTime: 2021-11-25 17:20:01
 -->
 <template>
   <div class="center__container">
@@ -20,6 +20,7 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .center__container {
+  overflow: scroll;
   padding: 0 35px;
   min-width: 700px;
   width: 75%;

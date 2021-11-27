@@ -1,17 +1,17 @@
 <!--
  * @Description:
  * @Date: 2021-10-13 18:43:03
- * @LastEditTime: 2021-11-24 23:04:22
+ * @LastEditTime: 2021-11-26 10:44:06
 -->
 <template>
   <div class="home">
-        <div class="home__grid box-1">
-          <div class="home__banner">
-            <h2>Recent Release</h2>
-            <n-carousel autoplay>
-              <img :src="item.imageUrl" alt="" v-for="item in bannerList" :key="item.imageUrl">
-            </n-carousel>
-          </div>
+    <div class="home__grid box-1">
+      <div class="home__banner">
+        <h2>Recent Release</h2>
+        <n-carousel autoplay>
+          <img :src="item.imageUrl" alt="" v-for="item in bannerList" :key="item.imageUrl">
+        </n-carousel>
+      </div>
         <!-- <h2>Top List</h2>
         <n-space vertical class="home__top-list" >
            <div class="home__top-list__item" v-for="item in topPlayList" :key="item.id">
@@ -25,26 +25,26 @@
               <span v-else class="home__top-list__item__title">{{item.name}}</span>
             </div>
         </n-space> -->
-        </div>
-        <div class="home__grid box-2">
-<h2>Player</h2>
-        <div class="home__player">
-          <img src="@/assets/icon.png" alt="">
-          <span class="home__player__title">{{currentPlayer?.name ?? 'name'}}</span>
-          <span class="home__player__artist">{{currentPlayer?.artist ?? 'artist'}}</span>
-          <!-- <audio controls>
-            <source src="music.mp3" type="audio/mpeg">
-          </audio> -->
-          <ProgressBar />
-        </div>
-        </div>
-        <div class="home__grid box-3">
-          <h2>Ranks</h2>
-        <n-tabs type="card" @update:value="changeTab" class="home__music-tabs">
-          <n-tab-pane tab="飙升榜" name="19723756"></n-tab-pane>
-          <n-tab-pane tab="新歌榜" name="3779629"></n-tab-pane>
-          <n-tab-pane tab="热歌榜" name="3778678"></n-tab-pane>
-        </n-tabs>
+    </div>
+    <div class="home__grid box-2">
+      <h2>Player</h2>
+      <div class="home__player">
+        <img src="@/assets/icon.png" alt="">
+        <span class="home__player__title">{{currentPlayer?.name ?? 'name'}}</span>
+        <span class="home__player__artist">{{currentPlayer?.artist ?? 'artist'}}</span>
+            <!-- <audio controls>
+              <source src="music.mp3" type="audio/mpeg">
+            </audio> -->
+        <ProgressBar />
+      </div>
+    </div>
+    <div class="home__grid box-3">
+      <h2>Ranks</h2>
+      <n-tabs type="card" @update:value="changeTab" class="home__music-tabs">
+        <n-tab-pane tab="飙升榜" name="19723756"></n-tab-pane>
+        <n-tab-pane tab="新歌榜" name="3779629"></n-tab-pane>
+        <n-tab-pane tab="热歌榜" name="3778678"></n-tab-pane>
+      </n-tabs>
         <n-space vertical class="home__music-list">
           <div class="home__music-list__item"  v-for="(item, index) in rankList" :key="item.id">
             <span class="home__music-list__item__index">{{index+1}}</span>
@@ -71,16 +71,15 @@
             </span>
             <i class="iconfont icon-bofang" @click="addCurrentPlay(item)"></i>
           </div>
-        </n-space>
-        </div>
-
+      </n-space>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import * as Dashboard from '@/apis/dashboard'
-import { NCarousel, NSpace, NTabs, NTabPane, NTooltip } from 'naive-ui'
+import { NCarousel, NSpace, NTabs, NTabPane, NTooltip, useMessage } from 'naive-ui'
 import { songStore } from '@/store/song'
 import ProgressBar from '@/components/ProgressBar/ProgressBar.vue'
 
@@ -98,6 +97,7 @@ export default defineComponent({
   components: { NCarousel, NSpace, NTabs, NTabPane, NTooltip, ProgressBar },
   setup() {
     const SongStore = songStore()
+    const Message = useMessage()
 
     const bannerList = ref([])
     const getBanner = async() => {
@@ -127,21 +127,22 @@ export default defineComponent({
     }
 
     let currentPlayer
-    const getSongUrl = async(id: number | string) => {
-      try {
-        const res = await Dashboard.getSongUrl({ id: 1893736474 })
-        console.log(res)
-      } catch (err: any) { console.error(err) }
-    }
 
     const addCurrentPlay = async(item:any) => {
       const { id, name, picUrl: img } = item.al
       const artist = item.ar
       currentPlayer = { id, name, img, artist, url: '', enable: true }
       try {
-        const res = await Dashboard.getSongUrl(id)
-        currentPlayer.url = res.data[0].url
-        SongStore.songInfo = currentPlayer
+        const checkRes = await Dashboard.checkMusic({ id: id })
+        const { success: isEnable } = checkRes.data ?? false
+        if (isEnable) {
+          const res = await Dashboard.getSongUrl({ id: id })
+          currentPlayer.url = res.data[0].url
+          SongStore.songInfo = currentPlayer
+        } else {
+          const { message } = checkRes.data ?? '暂无权限'
+          Message.error(message)
+        }
       } catch (err) { console.error(err) }
     }
 
@@ -149,7 +150,6 @@ export default defineComponent({
       getBanner()
       getTopPlayList()
       getPlaylistDetail(19723756)
-      getSongUrl(1886371886)
     })
     return {
       bannerList,
@@ -244,10 +244,13 @@ export default defineComponent({
       }
       &__artist {
         display: inline-block;
+        overflow: hidden;
         padding: 0 10px;
         width: 30%;
         height: 100%;
         vertical-align: top;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         opacity: .7;
       }
       i {

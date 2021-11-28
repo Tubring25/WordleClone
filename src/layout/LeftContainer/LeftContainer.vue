@@ -1,7 +1,7 @@
 <!--
  * @Description: Left Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-11-14 10:43:26
+ * @LastEditTime: 2021-11-28 10:41:24
 -->
 <template>
   <div class="left__container">
@@ -41,6 +41,7 @@ export default defineComponent({
   color: @text-gray;
   .avatar {
     margin-top: 40px;
+    cursor: pointer;
   }
   &__nav {
     margin: 30px 0;

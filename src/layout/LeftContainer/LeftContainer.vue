@@ -1,7 +1,7 @@
 <!--
  * @Description: Left Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-11-28 10:41:24
+ * @LastEditTime: 2021-12-02 11:59:20
 -->
 <template>
   <div class="left__container">
@@ -45,7 +45,7 @@ export default defineComponent({
   }
   &__nav {
     margin: 30px 0;
-    /deep/ .n-menu-item-content-header {
+    :deep(.n-menu-item-content-header) {
       color: @text-light;
     }
   }

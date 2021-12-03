@@ -1,7 +1,7 @@
 <!--
  * @Description: Layout Index
  * @Date: 2021-10-03 15:02:17
- * @LastEditTime: 2021-11-14 10:43:32
+ * @LastEditTime: 2021-12-02 18:40:26
 -->
 <template>
   <div class="layout-container">
@@ -24,6 +24,7 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .layout-container {
+  position: relative;
   overflow: hidden;
   margin: 50px 150px;
   width: calc(100vw -100px);

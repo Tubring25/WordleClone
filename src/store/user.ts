@@ -1,9 +1,10 @@
 /*
  * @Description:
  * @Date: 2021-11-08 11:39:16
- * @LastEditTime: 2021-11-22 10:09:32
+ * @LastEditTime: 2021-12-02 16:41:15
  */
 import { defineStore } from 'pinia'
+declare type Nullable<T> = T | null
 
 interface UserInfo {
   username: string,
@@ -16,7 +17,7 @@ interface UserState {
   token?: string
 }
 
-export const useUserStore = defineStore({
+export const userStore = defineStore({
   id: 'user-store',
   state: (): UserState => ({
     userInfo: null,

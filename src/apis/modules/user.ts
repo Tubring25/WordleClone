@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-26 17:26:46
- * @LastEditTime: 2021-11-28 21:42:54
+ * @LastEditTime: 2021-12-02 17:07:38
  */
 
 export interface SentCaptcha{
@@ -34,4 +34,9 @@ export interface Register {
   password: string,
   nickname: string,
   countrycode?: number
+}
+
+export interface UserInfo {
+  username: string,
+  email: string
 }

@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-11-07 19:25:34
- * @LastEditTime: 2021-11-08 21:43:28
+ * @LastEditTime: 2021-12-02 11:58:15
 -->
 <template>
   <div class="center-hader">
@@ -48,14 +48,14 @@ export default defineComponent({
   height: 40px;
   .n-input {
     width:40%;
-    /deep/ input {
+    :deep(input){
       height: 100%;
       line-height: 1;
     }
   }
   .n-tabs {
     width: 50%;
-    /deep/ .n-tabs-tab {
+    :deep(.n-tabs-tab) {
       color: @text-light;
       &--active,
       &:hover{

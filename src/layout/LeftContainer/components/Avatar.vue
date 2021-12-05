@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-31 20:34:23
- * @LastEditTime: 2021-12-02 19:06:50
+ * @LastEditTime: 2021-12-03 18:21:29
 -->
 <template>
   <div class="avatar">
@@ -13,7 +13,7 @@
     <n-button v-else type="primary" ghost @click="openLogin">Login</n-button>
   </div>
   <n-modal :show="isLogin">
-    <n-card style="width: 600px;" title="" :bordered="false" size="huge">
+    <n-card style="width: 600px;" title="" :bordered="false" embedded size="huge">
       <login />
     </n-card>
   </n-modal>

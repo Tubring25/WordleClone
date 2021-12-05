@@ -1,10 +1,10 @@
 /*
  * @Description:
  * @Date: 2021-11-26 17:26:46
- * @LastEditTime: 2021-12-02 17:07:38
+ * @LastEditTime: 2021-12-04 20:15:51
  */
 
-export interface SentCaptcha{
+export interface SentCaptcha {
   phone: number | string,
   ctcode?: number | string
 }

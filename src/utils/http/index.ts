@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-02 21:43:13
- * @LastEditTime: 2021-11-26 18:12:12
+ * @LastEditTime: 2021-12-07 18:46:28
  */
 
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
@@ -18,8 +18,12 @@ const axiosCanceler = new AxiosCanceler()
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     axiosCanceler.addPending(config)
-
-    Object.assign(config.params ?? {}, { realIP: '192.168.8.108' })
+    const timestamp = new Date()
+    if (config.method?.toLocaleLowerCase() === 'post') {
+      console.log(config.data)
+    }
+    config.method?.toLocaleLowerCase() === 'post' ? config.data = Object.assign(config.data, { timestamp: Date.parse(timestamp.toString()) }, { realIP: '192.168.8.108' }) : config.params = Object.assign(config.params ?? {}, { realIP: '192.168.8.108' })
+    console.log(config)
     return config
   },
   error => {

@@ -1,7 +1,7 @@
 <!--
  * @Description: Login
  * @Date: 2021-11-28 10:35:05
- * @LastEditTime: 2021-12-07 18:59:18
+ * @LastEditTime: 2021-12-08 19:10:19
 -->
 <template>
   <img src="@/assets/icon.png" alt="" class="login__img">
@@ -36,7 +36,7 @@
         placeholder=""
       ></n-input>
     </n-form-item>
-    <n-button type="primary" :ghost="loginStatus === 0" style="width:100%" @click="submit">{{loginStatus === 0 ? 'Sign In' : 'Sign Up'}}</n-button>
+    <n-button type="primary" :ghost="loginStatus === 0" :disabled="isSubmitBtnLoading" :loading="isSubmitBtnLoading" style="width:100%" @click="submit">{{loginStatus === 0 ? 'Sign In' : 'Sign Up'}}</n-button>
     <div class="btn-sug">
       <span @click="changeLoginType(0)">{{loginType === 'email' ? '切换手机登陆' : '切换至邮箱登录' }}</span>
       <span @click="loginStatus = Number(!loginStatus)">{{loginStatus === 0 ? 'Sign Up' : 'Sign In'}}</span>
@@ -45,18 +45,22 @@
   </n-form>
 </template>
 <script lang='ts'>
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref, inject } from 'vue'
 import { NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui'
 import * as UserInterface from '@/apis/modules/user'
 import { checkEmpty } from '@/utils/validator'
-import { loginByEmail, loginByPhone, sendCaptcha, getAccountInfo } from '@/apis/user'
-// import { sendCaptcha } from '@/apis/user'
+import { loginByEmail, loginByPhone, sendCaptcha } from '@/apis/user'
+import { userStore } from '@/store/user'
 
 export default defineComponent({
   name: 'Login',
   components: { NForm, NFormItem, NInput, NButton },
   setup() {
+    const changeModalVis:any = inject('changeModalVis')
+
     const message = useMessage()
+    const UserStore = userStore()
+
     const loginRef = ref()
     const loginStatus = ref<number>(0) // 0:登录 1:注册
     const loginType = ref<string>('phone') // phone email captcha
@@ -133,15 +137,24 @@ export default defineComponent({
       } catch (err) { console.error(err) }
     }
 
+    const isSubmitBtnLoading = ref<boolean>(false)
     const submit = () => {
       loginRef.value.validate(async(errors:any) => {
         if (!errors) {
           if (loginStatus.value === 0) {
             try {
+              isSubmitBtnLoading.value = true
               const res = loginType.value === 'email' ? await loginByEmail(emailLoginForm) : await loginByPhone(cellPhoneLoginForm)
-              const accountInfo = await getAccountInfo()
-              console.log(res, accountInfo)
+              if (res.code === 200) {
+                sessionStorage.setItem('netease-cookie', res.cookie)
+                changeModalVis()
+                UserStore.profile = res.profile
+                UserStore.account = res.account
+                UserStore.token = res.token
+              }
+              isSubmitBtnLoading.value = false
             } catch (error) {
+              isSubmitBtnLoading.value = false
               console.error(error)
             }
           }
@@ -162,6 +175,7 @@ export default defineComponent({
       leftSeconds,
       sendCaptcha_,
       changeLoginType,
+      isSubmitBtnLoading,
       submit
     }
   }

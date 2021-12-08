@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-11-26 16:14:52
+ * @LastEditTime: 2021-12-08 16:28:54
 -->
 <template>
   <div class="app-container">
@@ -10,7 +10,7 @@
     </n-message-provider>
   </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { NMessageProvider } from 'naive-ui'
 export default defineComponent({

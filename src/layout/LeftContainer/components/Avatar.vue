@@ -1,16 +1,16 @@
 <!--
  * @Description:
  * @Date: 2021-10-31 20:34:23
- * @LastEditTime: 2021-12-03 18:21:29
+ * @LastEditTime: 2021-12-08 19:17:20
 -->
 <template>
   <div class="avatar">
-    <img id="avatar" ref="avatar" src="../../../assets/logo.png" alt="">
+    <img id="avatar" ref="avatar" :src="UserStore.profile.avatarUrl" alt="">
     <div v-if="UserStore.token">
-      <h3 class="avatar__name">{{userInfo.username}}</h3>
-      <p class="avatar__email">{{userInfo.email}}</p>
+      <h3 class="avatar__name">{{UserStore.profile.nickname}}</h3>
+      <p class="avatar__email">{{UserStore.profile.nickname}}</p>
     </div>
-    <n-button v-else type="primary" ghost @click="openLogin">Login</n-button>
+    <n-button v-else type="primary" ghost @click="changeModalVis">Login</n-button>
   </div>
   <n-modal :show="isLogin">
     <n-card style="width: 600px;" title="" :bordered="false" embedded size="huge">
@@ -20,7 +20,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, ref, provide } from 'vue'
 import { NButton, NModal, NCard } from 'naive-ui'
 import { userStore } from '@/store/user'
 import Login from '@/views/login/login.vue'
@@ -30,20 +30,16 @@ export default defineComponent({
   name: 'Avatar',
   components: { NButton, Login, NModal, NCard },
   setup() {
-    const userInfo = reactive({
-      username: 'username',
-      email: 'email'
-    })
     const UserStore = userStore()
 
     const isLogin = ref<boolean>(false)
-    const openLogin = () => {
-      isLogin.value = true
+    const changeModalVis = () => {
+      isLogin.value = !isLogin.value
     }
+    provide('changeModalVis', changeModalVis)
     return {
-      openLogin,
+      changeModalVis,
       isLogin,
-      userInfo,
       UserStore
     }
   }
@@ -54,6 +50,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
   width: 100%;
   text-align: center;
   img {

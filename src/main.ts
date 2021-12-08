@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-11-22 17:55:51
+ * @LastEditTime: 2021-12-08 17:10:17
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -9,5 +9,8 @@ import router from './router'
 import { createPinia } from 'pinia'
 import '@/theme/index.less'
 import '@/assets/iconfont/iconfont.css'
+import { useMessage } from 'naive-ui'
 
-createApp(App).use(router).use(createPinia()).mount('#app')
+const app = createApp(App)
+app.config.globalProperties.$message = useMessage()
+app.use(router).use(createPinia()).mount('#app')

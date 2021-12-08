@@ -1,7 +1,7 @@
 <!--
  * @Description: Layout Index
  * @Date: 2021-10-03 15:02:17
- * @LastEditTime: 2021-12-02 18:40:26
+ * @LastEditTime: 2021-12-08 16:31:37
 -->
 <template>
   <div class="layout-container">
@@ -12,15 +12,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import LeftContainer from './LeftContainer/LeftContainer.vue'
 import CenterContainer from './CenterContainer/CenterContainer.vue'
-
-export default defineComponent({
-  name: 'Layout',
-  components: { LeftContainer, CenterContainer }
-})
+import { useMessage } from 'naive-ui'
+window.$message = useMessage()
 </script>
 <style lang="less" scoped>
 .layout-container {

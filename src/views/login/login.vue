@@ -1,7 +1,7 @@
 <!--
  * @Description: Login
  * @Date: 2021-11-28 10:35:05
- * @LastEditTime: 2021-12-08 19:10:19
+ * @LastEditTime: 2021-12-09 16:33:49
 -->
 <template>
   <img src="@/assets/icon.png" alt="" class="login__img">
@@ -148,9 +148,9 @@ export default defineComponent({
               if (res.code === 200) {
                 sessionStorage.setItem('netease-cookie', res.cookie)
                 changeModalVis()
-                UserStore.profile = res.profile
-                UserStore.account = res.account
-                UserStore.token = res.token
+                UserStore.setProfile(res.profile)
+                UserStore.setAccount(res.account)
+                UserStore.setToken(res.token)
               }
               isSubmitBtnLoading.value = false
             } catch (error) {

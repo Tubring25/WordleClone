@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-12-12 22:25:18
- * @LastEditTime: 2021-12-12 22:38:00
+ * @LastEditTime: 2021-12-12 22:58:09
 -->
 <template>
   <n-switch :rail-style="railStyle">

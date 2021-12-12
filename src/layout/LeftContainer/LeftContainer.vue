@@ -1,34 +1,65 @@
 <!--
  * @Description: Left Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-12-08 19:17:13
+ * @LastEditTime: 2021-12-12 21:21:14
 -->
 <template>
   <div class="left__container">
     <Avatar />
     <div class="left__container__nav">
-      <n-menu :options="commonMenu" style="width: 180px;" />
+      <n-menu :options="commonMenu" style="width: 100%;" @update:value="selectMenu" />
     </div>
     <n-divider />
+
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import Avatar from './components/Avatar.vue'
-import { NDivider, NMenu } from 'naive-ui'
+import { NDivider, NMenu, MenuOption, useMessage } from 'naive-ui'
+import { userStore } from '@/store/user'
+import { getRecentPlaylist } from '@/apis/recent'
 
 const commonMenu = [
-  { label: '最近播放', key: 'Recent' },
-  { label: '专辑', key: 'Album' }
+  { label: '最近歌单', key: 'playlist' },
+  { label: '最近单曲', key: 'song' }
 ]
 export default defineComponent({
   name: 'LeftContainer',
   components: { Avatar, NDivider, NMenu },
   setup() {
+    const message = useMessage()
+    const UserStore = userStore()
+
     const leftNav = ['Recommend', 'Brand', 'Artists', 'Podcast']
+
+    // const playList = reactive([])
+
+    const selectMenu = async(key: string, item: MenuOption) => {
+      console.log(key, item)
+      if (!UserStore.getToken) {
+        message.error('Please Login First!')
+        return
+      }
+      try {
+        let recent
+        switch (key) {
+          case 'playlist':
+            recent = await getRecentPlaylist({ limit: 20 })
+            console.log(recent)
+            break
+          case 'song':
+            break
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     return {
       leftNav,
-      commonMenu
+      commonMenu,
+      selectMenu
     }
   }
 })

@@ -1,11 +1,11 @@
 <!--
  * @Description:
  * @Date: 2021-10-31 20:34:23
- * @LastEditTime: 2021-12-09 16:53:54
+ * @LastEditTime: 2021-12-18 21:26:21
 -->
 <template>
   <div class="avatar">
-    <img id="avatar" ref="avatar" :src="`${UserStore.getProfile.avatarUrl ?? 'https://octodex.github.com/images/dinotocat.png'}`" alt="">
+    <img id="avatar" ref="avatar" :src="`${UserStore.getProfile?.avatarUrl ?? 'https://octodex.github.com/images/dinotocat.png'}`" alt="">
     <div v-if="UserStore.getToken">
       <h3 class="avatar__name">{{UserStore.getProfile.nickname}}</h3>
       <p class="avatar__email">{{UserStore.getAccount.nickname}}</p>

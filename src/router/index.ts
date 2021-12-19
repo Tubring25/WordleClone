@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-10-02 23:32:24
- * @LastEditTime: 2021-11-08 21:58:13
+ * @LastEditTime: 2021-12-19 22:38:46
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
@@ -9,17 +9,24 @@ import Layout from '@/layout/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/index',
-    name: 'About',
+    redirect: '/dashboard',
+    name: 'Dashboard',
     component: Layout,
     children: [
       {
-        path: 'index',
-        name: 'about',
+        path: 'dashboard',
+        name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue')
+      },
+      {
+        path: 'playlist',
+        name: 'PlayList',
+        component: () => import('@/views/playlist/index.vue')
       }
+
     ]
-  }
+  },
+  { path: '/:catchAll(.*)', redirect: '/playlist' }
 ]
 
 const router = createRouter({

@@ -1,7 +1,7 @@
 <!--
  * @Description: Left Container
  * @Date: 2021-10-03 15:01:29
- * @LastEditTime: 2021-12-12 21:21:14
+ * @LastEditTime: 2021-12-18 21:26:15
 -->
 <template>
   <div class="left__container">
@@ -14,7 +14,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent } from 'vue'
 import Avatar from './components/Avatar.vue'
 import { NDivider, NMenu, MenuOption, useMessage } from 'naive-ui'
 import { userStore } from '@/store/user'

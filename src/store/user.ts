@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 11:39:16
- * @LastEditTime: 2021-12-09 16:53:33
+ * @LastEditTime: 2021-12-18 21:59:08
  */
 import { defineStore } from 'pinia'
 declare type Nullable<T> = T | null
@@ -35,13 +35,13 @@ export const userStore = defineStore({
   }),
   getters: {
     getProfile: (state) => {
-      return state.profile ?? JSON.parse(sessionStorage.getItem('netease-profile') ?? '') ?? null
+      return state.profile ?? (sessionStorage.getItem('netease-profile') ? JSON.parse(sessionStorage.getItem('netease-profile') as string) : null)
     },
     getToken: (state) => {
-      return state.token ?? sessionStorage.getItem('netease-token') ?? null
+      return state.token ?? (sessionStorage.getItem('netease-token') ?? null)
     },
     getAccount: (state) => {
-      return state.account ?? JSON.parse(sessionStorage.getItem('netease-account') ?? '') ?? null
+      return state.account ?? (sessionStorage.getItem('netease-account') ? JSON.parse(sessionStorage.getItem('netease-account') as string) : null)
     }
   },
   actions: {

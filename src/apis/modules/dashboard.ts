@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-11-08 18:21:12
- * @LastEditTime: 2021-11-21 14:50:56
+ * @LastEditTime: 2022-01-04 20:56:55
  */
 
 export interface Search {
@@ -21,7 +21,7 @@ export interface TopList {
   order?: string,
   cat?: string,
   limit?: number,
-  offset?: string
+  offset?: number
 }
 
 export interface PlaylistDetail {

@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Date: 2021-10-31 20:34:23
- * @LastEditTime: 2021-12-18 21:26:21
+ * @LastEditTime: 2022-01-02 12:56:01
 -->
 <template>
   <div class="avatar">
@@ -12,23 +12,21 @@
     </div>
     <n-button v-else type="primary" ghost @click="changeModalVis">Login</n-button>
   </div>
-  <n-modal :show="isLogin">
-    <n-card style="width: 600px;" title="" :bordered="false" embedded size="huge" >
-      <login />
-    </n-card>
+  <n-modal v-model:show="isLogin" :mask-closable="false" preset="card" style="width: 600px;">
+    <login />
   </n-modal>
 </template>
 
 <script lang='ts'>
 import { defineComponent, ref, provide } from 'vue'
-import { NButton, NModal, NCard } from 'naive-ui'
+import { NButton, NModal } from 'naive-ui'
 import { userStore } from '@/store/user'
 import Login from '@/views/login/login.vue'
 // import * as UserInterface from '@/apis/modules/user'
 
 export default defineComponent({
   name: 'Avatar',
-  components: { NButton, Login, NModal, NCard },
+  components: { NButton, Login, NModal },
   setup() {
     const UserStore = userStore()
     console.log('UserStore', UserStore)

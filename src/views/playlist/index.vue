@@ -1,20 +1,19 @@
 <!--
  * @Description:
  * @Date: 2021-12-12 22:25:18
- * @LastEditTime: 2022-01-04 22:12:33
+ * @LastEditTime: 2022-01-06 22:48:03
 -->
 <template>
   <n-switch v-model:value="isOpenSwitch" :rail-style="railStyle">
     <template #checked>Card</template>
     <template #unchecked>List</template>
   </n-switch>
-  <n-grid :x-gap="12" :y-gap="8" :cols="4">
+  <n-grid :x-gap="24" :y-gap="24" :cols="4">
     <n-grid-item v-for="item in playlists" :key="item.id">
-      <n-card :title="item.name">
-        <template #cover>
-          <img :src="item.coverImgUrl">
-        </template>
-        <span class="title">{{item.description}}</span>
+      <n-card class="card">
+        <img class="card__cover" :src="item.coverImgUrl">
+        <span class="card__title">{{item.name}}</span>
+        <span class="card__description">{{item.description}}</span>
       </n-card>
     </n-grid-item>
   </n-grid>
@@ -61,9 +60,32 @@ const railStyle = (config:any) => {
 }
 </script>
 <style lang="less" scoped>
-.title {
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
+.n-card{
+  :deep(.n-card__content) {
+    padding: 0;
+  }
+}
+.card {
+  &__cover {
+    width: 100%;
+  }
+  &__title, &__description {
+    display: block;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: @active-color;
+  }
+  &__title {
+    padding: 10px 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: .8;
+  }
+  &__description{
+    opacity: .6;
+    padding: 10px;
+  }
 }
 </style>

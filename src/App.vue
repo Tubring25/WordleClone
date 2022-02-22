@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2022-02-18 14:23:58
- * @LastEditTime: 2022-02-22 10:57:57
+ * @LastEditTime: 2022-02-22 11:41:39
 -->
 <script lang="ts">
 import { defineComponent,computed, onMounted, watch } from 'vue'
@@ -49,7 +49,7 @@ onMounted(() => {
     params: {count: '5', wordLength: '5'},
     headers: {
       'x-rapidapi-host': 'random-words5.p.rapidapi.com',
-      'x-rapidapi-key': (import.meta.env.RAPID_API_KEY) as string
+      'x-rapidapi-key': 'f69640fae8msh51b6b46f4527b45p1ebe1djsne16871614ede' // need to replace with your own api key
     }
   };
   axios.request(options).then(function (response) {

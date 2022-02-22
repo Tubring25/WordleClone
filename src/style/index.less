@@ -1,117 +1,180 @@
-.page-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  min-width: 800px;
-  width: 60%;
-  height: 100vh;
-  text-align: center;
-  header {
-    border-bottom: 1px solid gray;
-    .title {
-      margin: 0.5rem;
-      width: 100%;
-      text-align: center;
-    }
-  }
-  .message-container {
-    display: block;
-    height: 70px;
-    .message {
-      display: inline-block;
-      margin: 15px;
-      padding: 5px 15px;
-      border-radius: 5px;
-      background: #111;
-      color: #fff;
-      font-weight: bold;
-    }
-  }
-  .tiles-contaienr {
-    min-width: 600px;
-    width: 600px;
-    &__guess-row {
-      &__tile {
-        display: inline-block;
-        margin: 3px;
-        width: 60px;
-        height: 60px;
-        border: 2px solid #d3d6da;
-        border-radius: 3px;
-        vertical-align: top;
-        font-weight: bold;
-        font-size: 2.2rem;
-        line-height: 60px;
-        &.filled {
-          border: 2px solid #111;
-          animation: bounce 0.2s;
-        }
-        @keyframes bounce {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-      }
-    }
-  }
-  .key-container {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
+@color-correct: #6aa964;
+@color-fuzzy: #cab458;
+@color-absent: #787c7e;
+
+.theme(@background-color, @text-color, @border-color) {
+  .page-container {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    width: 510px;
-    transform: (translateX(-50%));
-    button {
-      margin: 4px;
-      width: 43px;
-      height: 58px;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      &:nth-child(11) {
-        margin-left: 30px;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    background-color: @background-color;
+    text-align: center;
+    header {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 auto;
+      border-bottom: 1px solid gray;
+      @media (min-width: 768px) {
+        width: 60%;
       }
-      &:nth-child(20),
-      &:nth-child(28) {
-        width: 68px;
+      @media (max-width: 768px) {
+        width: 95%;
+      }
+      .title {
+        margin: 0.5rem;
+        width: 60%;
+        color: @text-color;
+        text-align: center;
+      }
+    }
+    .message-container {
+      display: block;
+      height: 70px;
+      .message {
+        display: inline-block;
+        margin: 15px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        background: @text-color;
+        color: @background-color;
+        font-weight: bold;
+      }
+    }
+    .tiles-contaienr {
+      min-width: 600px;
+      width: 600px;
+      &__guess-row {
+        &__tile {
+          display: inline-block;
+          margin: 3px;
+          width: 60px;
+          height: 60px;
+          border: 2px solid @border-color;
+          border-radius: 3px;
+          color: @text-color;
+          vertical-align: top;
+          font-weight: bold;
+          font-size: 2.2rem;
+          line-height: 60px;
+          &.filled {
+            border: 2px solid @text-color;
+            animation: bounce 0.2s;
+          }
+          @keyframes bounce {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.05);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+    .key-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      width: 510px;
+      width: 100%;
+      transform: (translateX(-50%));
+      &__key-row {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 8px;
+        width: 100%;
+
+        touch-action: manipulation;
+        &__key {
+          height: 58px;
+          border: none;
+          border-radius: 4px;
+          font-weight: bold;
+          @media (min-width: 768px) {
+            margin: 0 4px;
+            width: 43px;
+          }
+          @media (max-width: 768px) {
+            margin: 0 2px;
+            width: 32px;
+          }
+          &:nth-child(11) {
+            margin-left: 30px;
+          }
+          &:nth-child(20),
+          &:nth-child(28) {
+            width: 68px;
+          }
+        }
+        &:last-child {
+          @media (min-width: 768px) {
+            :first-child,
+            :last-child {
+              width: 68px;
+            }
+          }
+          @media (max-width: 768px) {
+            :first-child,
+            :last-child {
+              width: 50px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .correct {
+      border-color: @color-correct;
+      background: @color-correct;
+      color: #fff;
+    }
+    .fuzzy {
+      border-color: @color-fuzzy;
+      background: @color-fuzzy;
+      color: #fff;
+    }
+    .absent {
+      border-color: @color-absent;
+      background: @color-absent;
+      color: #fff;
+    }
+    .flip {
+      animation: flip 1s;
+    }
+    @keyframes flip {
+      0% {
+        transform: rotateX(0deg);
+      }
+      50% {
+        transform: rotateX(90deg);
+      }
+      100% {
+        transform: rotateX(0deg);
       }
     }
   }
-  .correct {
-    border-color: #6aa964;
-    background: #6aa964;
-    color: #fff;
-  }
-  .fuzzy {
-    border-color: #cab458;
-    background: #cab458;
-    color: #fff;
-  }
-  .absent {
-    border-color: #787c7e;
-    background: #787c7e;
-    color: #fff;
-  }
-  .flip {
-    animation: flip 1s;
-  }
-  @keyframes flip {
-    0% {
-      transform: rotateX(0deg);
-    }
-    50% {
-      transform: rotateX(90deg);
-    }
-    100% {
-      transform: rotateX(0deg);
-    }
-  }
+}
+
+.theme-light {
+  @background-color: #fff;
+  @text-color: #121213;
+  @border-color: #d3d6da;
+  .theme(@background-color, @text-color, @border-color);
+}
+
+.theme-dark {
+  @background-color: #121213;
+  @text-color: #fff;
+  @border-color: #3a3a3a;
+  .theme(@background-color, @text-color, @border-color);
 }

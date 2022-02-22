@@ -20,6 +20,16 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@css-render/plugin-bem@^0.15.8":
+  version "0.15.8"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@css-render/plugin-bem/-/plugin-bem-0.15.8.tgz#02df62ec0a16f5c07687e64f1ee595e8509d04ce"
+  integrity sha512-rJMFBaqZGrezs1d0vPB7hZTSkfFEgcdWxPMtLUmm9PAOioWtw+Knb9A0xU0bYazPKDo0SoNVVcd1Qd1LXD9x4Q==
+
+"@css-render/vue3-ssr@^0.15.7", "@css-render/vue3-ssr@^0.15.8":
+  version "0.15.8"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@css-render/vue3-ssr/-/vue3-ssr-0.15.8.tgz#76f36fd52c4e53b8f553e00032c378c0ae59bab3"
+  integrity sha512-zPFyOH47hEcyRgoIjNEwzYqZEq/LEXPafDXY/9EMpvgCmsPhW1bpC3w8YwAISaP519QesJ/8aNDL/xWKpwXBvQ==
+
 "@emmetio/abbreviation@^2.2.3":
   version "2.2.3"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@emmetio/abbreviation/-/abbreviation-2.2.3.tgz"
@@ -39,10 +49,35 @@
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@emmetio/scanner/-/scanner-1.0.0.tgz"
   integrity sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==
 
-"@types/lodash@^4.14.178":
+"@emotion/hash@~0.8.0":
+  version "0.8.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+  integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
+
+"@types/jest@^27.0.1":
+  version "27.4.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@types/jest/-/jest-27.4.0.tgz#037ab8b872067cae842a320841693080f9cb84ed"
+  integrity sha512-gHl8XuC1RZ8H2j5sHv/JqsaxXkDDM9iDOgu0Wp8sjs4u/snb2PVehyWXJPr+ORA0RPpgw231mnutWI1+0hgjIQ==
+  dependencies:
+    jest-diff "^27.0.0"
+    pretty-format "^27.0.0"
+
+"@types/lodash-es@^4.17.4":
+  version "4.17.6"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@types/lodash-es/-/lodash-es-4.17.6.tgz#c2ed4c8320ffa6f11b43eb89e9eaeec65966a0a0"
+  integrity sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.170", "@types/lodash@^4.14.178":
   version "4.14.178"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
   integrity sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==
+
+"@types/node@~14.14.31":
+  version "14.14.45"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/@types/node/-/node-14.14.45.tgz#ec2dfb5566ff814d061aef7e141575aedba245cf"
+  integrity sha1-7C37VWb/gU0GGu9+FBV1rtuiRc8=
 
 "@vitejs/plugin-vue@^1.9.3":
   version "1.10.2"
@@ -198,6 +233,23 @@ acorn@^7.1.1:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/acorn/-/acorn-7.4.1.tgz"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
 
+ansi-regex@^5.0.1:
+  version "5.0.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
+  integrity sha1-CCyyyJyf6GWaMRpTvWpNxTAdswQ=
+
+ansi-styles@^4.1.0:
+  version "4.3.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
+  integrity sha1-7dgDYornHATIWuegkG7a00tkiTc=
+  dependencies:
+    color-convert "^2.0.1"
+
+ansi-styles@^5.0.0:
+  version "5.2.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
+  integrity sha1-B0SWkK1Fd30ZJKwquy/IiV26g2s=
+
 asap@~2.0.3:
   version "2.0.6"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/asap/-/asap-2.0.6.tgz"
@@ -207,6 +259,11 @@ assert-never@^1.2.1:
   version "1.2.1"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/assert-never/-/assert-never-1.2.1.tgz"
   integrity sha512-TaTivMB6pYI1kXwrFlEhLeGfOqoDNdTxjCdwRfFFkEA30Eu+k48W34nlok2EYWJfFFzqaEmichdNM7th6M5HNw==
+
+async-validator@^4.0.1:
+  version "4.0.7"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/async-validator/-/async-validator-4.0.7.tgz#034a0fd2103a6b2ebf010da75183bec299247afe"
+  integrity sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==
 
 axios@^0.26.0:
   version "0.26.0"
@@ -230,12 +287,32 @@ call-bind@^1.0.2:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
 
+chalk@^4.0.0:
+  version "4.1.2"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha1-qsTit3NKdAhnrrFr8CqtVWoeegE=
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 character-parser@^2.2.0:
   version "2.2.0"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/character-parser/-/character-parser-2.2.0.tgz"
   integrity sha1-x84o821LzZdE5f/CxfzeHHMmH8A=
   dependencies:
     is-regex "^1.0.3"
+
+color-convert@^2.0.1:
+  version "2.0.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
+  integrity sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=
+  dependencies:
+    color-name "~1.1.4"
+
+color-name@~1.1.4:
+  version "1.1.4"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
+  integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
 
 constantinople@^4.0.1:
   version "4.0.1"
@@ -252,10 +329,34 @@ copy-anything@^2.0.1:
   dependencies:
     is-what "^3.14.1"
 
+css-render@^0.15.7, css-render@^0.15.8:
+  version "0.15.8"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/css-render/-/css-render-0.15.8.tgz#29965c42af4302a5ce26d8c1ed90ca7a01db3be2"
+  integrity sha512-k1gp1MgYDPrFZhzheQkSwm6dmP6nPe2XE6WYpJBPwEc3GbMANPJZfxl7ofZlTl8/+tpMRiGTTgUkTlXaVbLxog==
+  dependencies:
+    "@emotion/hash" "~0.8.0"
+    "@types/node" "~14.14.31"
+    csstype "~3.0.5"
+
 csstype@^2.6.8:
   version "2.6.19"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/csstype/-/csstype-2.6.19.tgz"
   integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
+
+csstype@~3.0.5:
+  version "3.0.10"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
+  integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
+
+date-fns-tz@^1.1.6:
+  version "1.2.2"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/date-fns-tz/-/date-fns-tz-1.2.2.tgz#89432b54ce3fa7d050a2039e997e5b6a96df35dd"
+  integrity sha512-vWtn44eEqnLbkACb7T5G5gPgKR4nY8NkNMOCyoY49NsRGHrcDmY2aysCyzDeA+u+vcDBn/w6nQqEDyouRs4m8w==
+
+date-fns@^2.27.0:
+  version "2.28.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
 
 debug@^3.2.6:
   version "3.2.7"
@@ -263,6 +364,11 @@ debug@^3.2.6:
   integrity sha1-clgLfpFF+zm2Z2+cXl+xALk0F5o=
   dependencies:
     ms "^2.1.1"
+
+diff-sequences@^27.5.1:
+  version "27.5.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/diff-sequences/-/diff-sequences-27.5.1.tgz#eaecc0d327fd68c8d9672a1e64ab8dccb2ef5327"
+  integrity sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==
 
 doctypes@^1.1.0:
   version "1.1.0"
@@ -444,6 +550,11 @@ estree-walker@^2.0.2:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/estree-walker/-/estree-walker-2.0.2.tgz"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
+evtd@^0.2.2, evtd@^0.2.3:
+  version "0.2.3"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/evtd/-/evtd-0.2.3.tgz#185158d533b4440ee831a0fa0cffde16e8bda504"
+  integrity sha512-tmiT1YUVqFjTY+BSBOAskL83xNx41iUfpvKP6Gcd/xMHjg3mnER98jXGXJyKnxCG19uPc6EhZiUC+MUyvoqCtw==
+
 follow-redirects@^1.14.8:
   version "1.14.8"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/follow-redirects/-/follow-redirects-1.14.8.tgz"
@@ -473,6 +584,11 @@ graceful-fs@^4.1.2:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/graceful-fs/-/graceful-fs-4.2.9.tgz"
   integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
 
+has-flag@^4.0.0:
+  version "4.0.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
+  integrity sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=
+
 has-symbols@^1.0.1, has-symbols@^1.0.2:
   version "1.0.2"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/has-symbols/-/has-symbols-1.0.2.tgz"
@@ -491,6 +607,11 @@ has@^1.0.3:
   integrity sha1-ci18v8H2qoJB8W3YFOAR4fQeh5Y=
   dependencies:
     function-bind "^1.1.1"
+
+highlight.js@^11.0.1:
+  version "11.4.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/highlight.js/-/highlight.js-11.4.0.tgz#34ceadd49e1596ee5aba3d99346cdfd4845ee05a"
+  integrity sha512-nawlpCBCSASs7EdvZOYOYVkJpGmAOKMYZgZtUqSRqodZE0GRVcFKwo1RcpeOemqh9hyttTdd5wDBwHkuSyUfnA==
 
 htmlparser2@^6.1.0:
   version "6.1.0"
@@ -547,6 +668,21 @@ is-what@^3.14.1:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/is-what/-/is-what-3.14.1.tgz"
   integrity sha1-4SIvRt3ahd6tD9HJ3xMXYOd3VcE=
 
+jest-diff@^27.0.0:
+  version "27.5.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/jest-diff/-/jest-diff-27.5.1.tgz#a07f5011ac9e6643cf8a95a462b7b1ecf6680def"
+  integrity sha512-m0NvkX55LDt9T4mctTEgnZk3fmEg3NRYutvMPWM/0iPnkFj2wIeF45O1718cMSOFO1vINkqmxqD8vE37uTEbqw==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^27.5.1"
+    jest-get-type "^27.5.1"
+    pretty-format "^27.5.1"
+
+jest-get-type@^27.5.1:
+  version "27.5.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/jest-get-type/-/jest-get-type-27.5.1.tgz#3cd613c507b0f7ace013df407a1c1cd578bcb4f1"
+  integrity sha512-2KY95ksYSaK7DMBWQn6dQz3kqAf3BB64y2udeG+hv4KfSOb9qwcYQstTJc1KCbsix+wLZWZYN8t7nwX3GOBLRw==
+
 js-stringify@^1.0.2:
   version "1.0.2"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/js-stringify/-/js-stringify-1.0.2.tgz"
@@ -587,6 +723,11 @@ less@^4.1.2:
     needle "^2.5.2"
     source-map "~0.6.0"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash@^4.17.21:
   version "4.17.21"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
@@ -623,6 +764,30 @@ ms@^2.1.1:
   version "2.1.3"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/ms/-/ms-2.1.3.tgz"
   integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
+
+naive-ui@^2.25.2:
+  version "2.25.2"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/naive-ui/-/naive-ui-2.25.2.tgz#e2f7bc5e11882a7c14a5c67dd175838e58749ec8"
+  integrity sha512-Jv/hMVHECh1Q7lPtIkGIa+eQVwFpQs6qEAn3r+eaEGmSuTAFJOrIKRL4ob10O5jQ1BxjLyWb+kzSxuwoi/VHWg==
+  dependencies:
+    "@css-render/plugin-bem" "^0.15.8"
+    "@css-render/vue3-ssr" "^0.15.8"
+    "@types/lodash" "^4.14.170"
+    "@types/lodash-es" "^4.17.4"
+    async-validator "^4.0.1"
+    css-render "^0.15.8"
+    date-fns "^2.27.0"
+    date-fns-tz "^1.1.6"
+    evtd "^0.2.3"
+    highlight.js "^11.0.1"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    seemly "^0.3.3"
+    treemate "^0.3.9"
+    vdirs "^0.1.7"
+    vfonts "^0.0.3"
+    vooks "^0.2.12"
+    vueuc "^0.4.25"
 
 nanoid@^3.2.0:
   version "3.3.1"
@@ -671,6 +836,15 @@ postcss@^8.1.10, postcss@^8.4.6:
     nanoid "^3.2.0"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+pretty-format@^27.0.0, pretty-format@^27.5.1:
+  version "27.5.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/pretty-format/-/pretty-format-27.5.1.tgz#2181879fdea51a7a5851fb39d920faa63f01d88e"
+  integrity sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==
+  dependencies:
+    ansi-regex "^5.0.1"
+    ansi-styles "^5.0.0"
+    react-is "^17.0.1"
 
 promise@^7.0.1:
   version "7.3.1"
@@ -787,10 +961,20 @@ pug@^3.0.2:
     pug-runtime "^3.0.1"
     pug-strip-comments "^2.0.0"
 
+react-is@^17.0.1:
+  version "17.0.2"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
+  integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
 request-light@^0.5.4:
   version "0.5.7"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/request-light/-/request-light-0.5.7.tgz"
   integrity sha512-i/wKzvcx7Er8tZnvqSxWuNO5ZGggu2UgZAqj/RyZ0si7lBTXL7kZiI/dWxzxnQjaY7s5HEy1qK21Do4Ncr6cVw==
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
 
 resolve@^1.15.1, resolve@^1.22.0:
   version "1.22.0"
@@ -817,6 +1001,13 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/sax/-/sax-1.2.4.tgz"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
+
+seemly@^0.3.1, seemly@^0.3.3:
+  version "0.3.3"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/seemly/-/seemly-0.3.3.tgz#a6482f374e042f873f63dc7622cb1529c251574e"
+  integrity sha512-mAyqemz41e9HiZPMXAn7NtTExJgztwco5cdZjrt/iViU/oFeav+Q8K1c93M/tIZZ00QkT65JMr4xXQk7Vv5hWQ==
+  dependencies:
+    "@types/jest" "^27.0.1"
 
 semver@^5.6.0:
   version "5.7.1"
@@ -845,6 +1036,13 @@ sourcemap-codec@^1.4.4:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
+supports-color@^7.1.0:
+  version "7.2.0"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
+  integrity sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=
+  dependencies:
+    has-flag "^4.0.0"
+
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
@@ -860,6 +1058,11 @@ token-stream@1.0.0:
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/token-stream/-/token-stream-1.0.0.tgz"
   integrity sha1-zCAOqyYT9BZtJ/+a/HylbUnfbrQ=
 
+treemate@^0.3.9:
+  version "0.3.10"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/treemate/-/treemate-0.3.10.tgz#df40ce4c0c1251729b1431c9866134a34949fca5"
+  integrity sha512-uxN98H84/zXAkn02rEeip9SNnOR889QIBXfpZnwjaanp8JRElxjdmDaKmVULclrn54J8RcJVCqfeQZsdeMjwow==
+
 tslib@^2.3.0:
   version "2.3.1"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/tslib/-/tslib-2.3.1.tgz"
@@ -874,6 +1077,18 @@ upath@^2.0.1:
   version "2.0.1"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/upath/-/upath-2.0.1.tgz"
   integrity sha1-UMc96mjW9rmQ9R0nnOYIFmXWGos=
+
+vdirs@^0.1.4, vdirs@^0.1.7:
+  version "0.1.7"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/vdirs/-/vdirs-0.1.7.tgz#388cda8d1916349ed2ea3b56e31d0493eaf4c15b"
+  integrity sha512-MEUaLhV1jJyUqA2Ar4DfvlQx8jWs+PpCZ2dbM0ILelpMWGOybzt8ddL456VxeIbY/tkuDGT/Wzb8GG4LCuLuHw==
+  dependencies:
+    evtd "^0.2.2"
+
+vfonts@^0.0.3:
+  version "0.0.3"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/vfonts/-/vfonts-0.0.3.tgz#999d66fecea18efee3f2b966c81101ae8ce01a29"
+  integrity sha512-nguyw8L6Un8eelg1vQ31vIU2ESxqid7EYmy8V+MDeMaHBqaRSkg3dTBToC1PR00D89UzS/SLkfYPnx0Wf23IQQ==
 
 vite@^2.6.4:
   version "2.8.4"
@@ -891,6 +1106,13 @@ void-elements@^3.1.0:
   version "3.1.0"
   resolved "http://mvn.senses-ai.com:8081/repository/npm-group/void-elements/-/void-elements-3.1.0.tgz"
   integrity sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=
+
+vooks@^0.2.12, vooks@^0.2.4:
+  version "0.2.12"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/vooks/-/vooks-0.2.12.tgz#2b6e23330b77bac81c7f7a344c4ca3e9f4f6c373"
+  integrity sha512-iox0I3RZzxtKlcgYaStQYKEzWWGAduMmq+jS7OrNdQo1FgGfPMubGL3uGHOU9n97NIvfFDBGnpSvkWyb/NSn/Q==
+  dependencies:
+    evtd "^0.2.2"
 
 vscode-css-languageservice@^5.1.4:
   version "5.1.13"
@@ -1043,6 +1265,19 @@ vue@^3.2.16:
     "@vue/runtime-dom" "3.2.31"
     "@vue/server-renderer" "3.2.31"
     "@vue/shared" "3.2.31"
+
+vueuc@^0.4.25:
+  version "0.4.26"
+  resolved "http://mvn.senses-ai.com:8081/repository/npm-group/vueuc/-/vueuc-0.4.26.tgz#7196c260d871120576048668c1d81efe716b0458"
+  integrity sha512-IK6TV4468k7Hpj1SXXPYelT/aYqmfa/SYTLFospwJ/uMebRExS1fh5tx6ZT3fSA0OkmCOHmmi2OGke+eSseAgw==
+  dependencies:
+    "@css-render/vue3-ssr" "^0.15.7"
+    css-render "^0.15.7"
+    evtd "^0.2.2"
+    resize-observer-polyfill "^1.5.1"
+    seemly "^0.3.1"
+    vdirs "^0.1.4"
+    vooks "^0.2.4"
 
 with@^7.0.0:
   version "7.0.2"

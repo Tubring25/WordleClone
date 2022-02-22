@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2022-02-18 14:23:58
- * @LastEditTime: 2022-02-22 11:41:39
+ * @LastEditTime: 2022-02-22 17:54:19
 -->
 <script lang="ts">
 import { defineComponent,computed, onMounted, watch } from 'vue'
@@ -12,12 +12,13 @@ import {ref} from 'vue'
 import * as _ from 'lodash'
 import axios from 'axios'
 import { AxiosRequestConfig } from 'axios'
+import { NSwitch, NButton } from 'naive-ui'
 
 interface HtmlElWithOtherPro extends HTMLElement {
   bgColor?: string,
   letter?: string
 }
-const KEYS = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','ENTER','Z','X','C','V','B','N','M','<']
+const KEYS = [['Q','W','E','R','T','Y','U','I','O','P'],['A','S','D','F','G','H','J','K','L'],['ENTER','Z','X','C','V','B','N','M','<']]
 const WORDLENGTH = 5
 
 const guessRows = ref(new Array(6).fill(0).map(() => new Array(WORDLENGTH).fill('')))
@@ -119,8 +120,8 @@ const flipWord = () => {
   const rowTiles = _.slice(guessTileEls, currentTileInd.value - 5, currentTileInd.value)
   rowTiles.forEach((el:HtmlElWithOtherPro, index:number) => {
     const letter = el.letter
-    const keyEl = keysEls[KEYS.findIndex(item => item === letter)]
-    console.log(KEYS.findIndex(item => item === letter), keyEl, letter);
+    const keyEl = keysEls[KEYS.flat().findIndex(item => item === letter)]
+    console.log(KEYS.flat().findIndex(item => item === letter), keyEl, letter);
 
     const wordleArr = wordle.toUpperCase().split('')
     el.bgColor = letter === wordleArr[index] ? 'correct' : wordleArr.includes(letter as string) ? 'fuzzy' : 'absent'
@@ -136,12 +137,41 @@ const flipWord = () => {
   })
 }
 
+const switchRailStyle = ({ focused, checked }: {focused: boolean, checked: boolean}) => {
+  const style: {background:string, color: string, boxShadow: string} = {background:'', color: '', boxShadow: ''}
+  if (checked) {
+    style.background = '#3a3a3a'
+    if (focused) {
+      style.boxShadow = '0 0 0 2px #fff'
+    }
+  } else {
+    style.background = '#121213'
+    if (focused) {
+      style.boxShadow = '0 0 0 2px #121213'
+    }
+  }
+  return style
+}
+
+const changeTheme = (value: boolean) => {
+  value ? document.body.className = 'theme-dark' : document.body.className = 'theme-light'
+}
+
+const refreshPage = () => {
+  location.reload()
+}
+
 </script>
 
 <template>
 <div class="page-container">
   <header>
+    <n-button strong secondary type="primary" @click="refreshPage">Refresh</n-button>
     <h1 class="title">Wordle</h1>
+    <n-switch :rail-style="switchRailStyle" :on-update:value="changeTheme">
+      <template #checked>Light</template>
+      <template #unchecked>Dark</template>
+    </n-switch>
   </header>
   <div class="message-container">
     <span class="message" :ref="el=>{msgEl=el}">{{msgInfo}}</span>
@@ -152,10 +182,10 @@ const flipWord = () => {
     </div>
   </div>
   <div class="key-container">
-    <!-- <div v-for="(keyRow, index) in KEYS" :key="index" class="keys-container__key-row">
-      <span :class="['keys-container__key-row__key', key === 'ENTER' ? 'large' : '']" v-for="key in keyRow" :key="key" :ref="setKeyRef" @click="keyClick(key)" >{{key}}</span>
-    </div> -->
-    <button v-for="(key, index) in KEYS" :key="index" class="keys-container__key-row" :ref="setKeyRef" @click="keyClick(key)">{{key}}</button>
+    <div v-for="(keyRow, index) in KEYS" :key="index" class="key-container__key-row">
+      <button class="key-container__key-row__key" v-for="key in keyRow" :key="key" :ref="setKeyRef" @click="keyClick(key)" >{{key}}</button>
+    </div>
+    <!-- <button v-for="(key, index) in KEYS" :key="index" class="keys-container__key-row" :ref="setKeyRef" @click="keyClick(key)">{{key}}</button> -->
   </div>
 </div>
 </template>

@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [vue()],
   optimizeDeps: {
     include: ["lodash"]
-  }
+  },
+  base: './'
 })

@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2022-02-18 14:23:58
- * @LastEditTime: 2022-02-22 10:34:56
+ * @LastEditTime: 2022-02-22 10:57:57
 -->
 <script lang="ts">
 import { defineComponent,computed, onMounted, watch } from 'vue'
@@ -14,7 +14,7 @@ import axios from 'axios'
 import { AxiosRequestConfig } from 'axios'
 
 interface HtmlElWithOtherPro extends HTMLElement {
-  bgColor: string,
+  bgColor?: string,
   letter?: string
 }
 const KEYS = ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','ENTER','Z','X','C','V','B','N','M','<']
@@ -31,12 +31,12 @@ let msgEl = null
 let guessTileEls: Array<HtmlElWithOtherPro> = []
 let keysEls: Array<HtmlElWithOtherPro> = []
 
-const setTileRef = (el: HtmlElWithOtherPro) => {
+const setTileRef = (el:any ) => {
   if(el && guessTileEls.length < WORDLENGTH * 6) {    
     guessTileEls.push(el)
   }
 }
-const setKeyRef = (el: HtmlElWithOtherPro) => {
+const setKeyRef = (el:any) => {
   if(el && keysEls.length < 28) {
     keysEls.push(el)
   }
@@ -57,7 +57,6 @@ onMounted(() => {
   }).catch(function (error) {
     console.error(error);
   });
-  m
 })
 
 const keyClick = (letter: string) => {  
@@ -129,7 +128,7 @@ const flipWord = () => {
     setTimeout(() => {
       el.classList.remove('filled')
       el.classList.add('flip')
-      el.classList.add(el.bgColor)
+      el.classList.add(el.bgColor as string)
     }, 500 * index)
   });
   rowTiles.forEach((el:HtmlElWithOtherPro) => {

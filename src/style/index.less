@@ -1,0 +1,117 @@
+.page-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: 800px;
+  width: 60%;
+  height: 100vh;
+  text-align: center;
+  header {
+    border-bottom: 1px solid gray;
+    .title {
+      margin: 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .message-container {
+    display: block;
+    height: 70px;
+    .message {
+      display: inline-block;
+      margin: 15px;
+      padding: 5px 15px;
+      border-radius: 5px;
+      background: #111;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  .tiles-contaienr {
+    min-width: 600px;
+    width: 600px;
+    &__guess-row {
+      &__tile {
+        display: inline-block;
+        margin: 3px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid #d3d6da;
+        border-radius: 3px;
+        vertical-align: top;
+        font-weight: bold;
+        font-size: 2.2rem;
+        line-height: 60px;
+        &.filled {
+          border: 2px solid #111;
+          animation: bounce 0.2s;
+        }
+        @keyframes bounce {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+  .key-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 510px;
+    transform: (translateX(-50%));
+    button {
+      margin: 4px;
+      width: 43px;
+      height: 58px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      &:nth-child(11) {
+        margin-left: 30px;
+      }
+      &:nth-child(20),
+      &:nth-child(28) {
+        width: 68px;
+      }
+    }
+  }
+  .correct {
+    border-color: #6aa964;
+    background: #6aa964;
+    color: #fff;
+  }
+  .fuzzy {
+    border-color: #cab458;
+    background: #cab458;
+    color: #fff;
+  }
+  .absent {
+    border-color: #787c7e;
+    background: #787c7e;
+    color: #fff;
+  }
+  .flip {
+    animation: flip 1s;
+  }
+  @keyframes flip {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(90deg);
+    }
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+}

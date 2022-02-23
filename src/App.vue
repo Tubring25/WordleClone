@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2022-02-18 14:23:58
- * @LastEditTime: 2022-02-22 17:54:19
+ * @LastEditTime: 2022-02-23 14:27:30
 -->
 <script lang="ts">
 import { defineComponent,computed, onMounted, watch } from 'vue'
@@ -161,6 +161,11 @@ const refreshPage = () => {
   location.reload()
 }
 
+const copyResult = () => {
+  
+  navigator.clipboard.writeText('🟩🟨⬛\n🟩🟨⬛️\n🟩🟨⬛️')
+}
+
 </script>
 
 <template>
@@ -185,7 +190,6 @@ const refreshPage = () => {
     <div v-for="(keyRow, index) in KEYS" :key="index" class="key-container__key-row">
       <button class="key-container__key-row__key" v-for="key in keyRow" :key="key" :ref="setKeyRef" @click="keyClick(key)" >{{key}}</button>
     </div>
-    <!-- <button v-for="(key, index) in KEYS" :key="index" class="keys-container__key-row" :ref="setKeyRef" @click="keyClick(key)">{{key}}</button> -->
   </div>
 </div>
 </template>

@@ -12,7 +12,7 @@ import { ref, withDefaults } from 'vue'
 import { NCard, NButton } from 'naive-ui'
 import * as _ from 'lodash'
 const props = defineProps<{
-  answersView: Array<string | null>
+  answersView: Array<string | undefined>
   isFinish: boolean
 }>()
 const emit = defineEmits<{

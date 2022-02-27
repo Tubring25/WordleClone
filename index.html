@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2022-02-18 14:23:58
- * @LastEditTime: 2022-02-22 18:01:49
+ * @LastEditTime: 2022-02-26 13:58:40
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,3 +16,14 @@
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
+<script type="text/javascript">
+  const ipInfo = returnCitySN["cip"]
+  if(localStorage.getItem('i')) {
+    if(localStorage.getItem('i') !== ipInfo) {
+      localStorage.removeItem('sta')
+    }
+  } else {
+    localStorage.setItem('l', returnCitySN["cip"])
+  }
+</script>

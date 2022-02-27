@@ -12,6 +12,29 @@
     height: 100vh;
     background-color: @background-color;
     text-align: center;
+    .right-actions,
+    .left-actions {
+      display: flex;
+      align-items: center;
+      width: 120px;
+      svg {
+        width: 30px;
+        color: @text-color;
+        vertical-align: top;
+      }
+    }
+    .left-actions {
+      justify-content: left;
+      svg {
+        margin-right: 10px;
+      }
+    }
+    .right-actions {
+      justify-content: right;
+      .n-icon {
+        margin-right: 10px;
+      }
+    }
     header {
       display: flex;
       align-items: center;
